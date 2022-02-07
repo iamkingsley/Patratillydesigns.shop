@@ -1,11 +1,11 @@
 import { ROUTES } from '@lib/routes';
 export const siteSettings = {
-  name: 'PickBazar',
+  name: 'PatraTillyDesigns',
   description: '',
   logo: {
-    url: '/logo.svg',
-    alt: 'PickBazar',
-    href: '/grocery',
+    url: '/PATRA TILLY LOGO.jpg',
+    alt: 'PatraTillyDesigns',
+    href: '/Clothing',
     width: 128,
     height: 40,
   },
