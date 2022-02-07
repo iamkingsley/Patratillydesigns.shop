@@ -9,12 +9,16 @@ import { getIcon } from '@lib/get-icon';
 import isEmpty from 'lodash/isEmpty';
 import * as socialIcons from '@components/icons/social';
 export { getStaticProps } from '@framework/ssr/common';
+import Location from '@components/contact/map';
 
 export const ContactPage = () => {
   const { t } = useTranslation('common');
   const settings = useSettings();
   return (
     <div className="w-full bg-gray-100">
+      <div>
+      <Location />
+      </div>
       <div className="flex flex-col md:flex-row max-w-7xl w-full mx-auto py-10 px-5 xl:py-14 xl:px-8 2xl:px-14">
         {/* sidebar */}
         <div className="w-full md:w-72 lg:w-96 bg-light p-5 flex-shrink-0 order-2 md:order-1">
