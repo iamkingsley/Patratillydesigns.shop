@@ -11,7 +11,7 @@ const Logo: React.FC<React.AnchorHTMLAttributes<{}>> = ({
   const { logo, siteTitle } = useSettings();
   return (
     <Link href="/" className={cn('inline-flex', className)} {...props}>
-      <span className="overflow-hidden relative w-32 md:w-40 h-10">
+      <span className="overflow-hidden relative w-32 h-10 md:w-40 md:h-15 lg:w-50 lg:h-20">
         <Image
           src={logo?.original ?? logoPlaceholder}
           alt={siteTitle || 'PatraTillyDesigns Logo'}
