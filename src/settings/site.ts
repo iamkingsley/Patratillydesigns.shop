@@ -3,7 +3,7 @@ export const siteSettings = {
   name: 'PatraTillyDesigns',
   description: '',
   logo: {
-    url: 'patra-tilly.jpg',
+    url: '/patra-tilly.jpg',
     alt: 'PatraTillyDesigns',
     href: '/',
     width: 128,

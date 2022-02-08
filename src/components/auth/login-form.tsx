@@ -86,7 +86,7 @@ const LoginForm: React.FC<LoginFormProps> = ({
       </Form>
       {/* End of forgot login form */}
 
-      <div className="flex flex-col items-center justify-center relative text-sm text-heading mt-8 sm:mt-11 mb-6 sm:mb-8">
+      {/* <div className="flex flex-col items-center justify-center relative text-sm text-heading mt-8 sm:mt-11 mb-6 sm:mb-8">
         <hr className="w-full" />
         <span className="absolute start-2/4 -top-2.5 px-2 -ms-4 bg-light">
           {t('text-or')}
@@ -113,7 +113,7 @@ const LoginForm: React.FC<LoginFormProps> = ({
           <MobileIcon className="h-5 me-2 text-light" />
           {t('text-login-mobile')}
         </Button>
-      </div>
+      </div> */}
 
       <div className="flex flex-col items-center justify-center relative text-sm text-heading mt-8 sm:mt-11 mb-6 sm:mb-8">
         <hr className="w-full" />
