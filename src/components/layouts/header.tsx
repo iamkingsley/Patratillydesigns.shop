@@ -51,9 +51,9 @@ const Header = () => {
         <div className="flex items-center w-full lg:w-auto">
           <Logo className="mx-auto lg:mx-0" />
 
-          <div className="ms-10 me-auto hidden xl:block">
+          {/* <div className="ms-10 me-auto hidden xl:block">
             <GroupsDropdownMenu />
-          </div>
+          </div> */}
         </div>
         {isHomePage ? (
           <>

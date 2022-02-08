@@ -1,7 +1,7 @@
 import React from 'react';
-import logoPlaceholder from '@assets/placeholders/logo.svg';
+import logoPlaceholder from '@assets/placeholders/patra-tilly.jpg';
 const siteSettings = {
-  name: 'PickBazar E-commerce Shop',
+  name: 'Patra Tilly Designs E-commerce Shop',
   description: '',
   currencyCode: 'USD',
   logo: logoPlaceholder,

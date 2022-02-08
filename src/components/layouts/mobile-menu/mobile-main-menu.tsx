@@ -6,9 +6,11 @@ import { useAtom } from 'jotai';
 import { drawerAtom } from '@store/drawer-atom';
 
 const headerLinks = [
-  { href: ROUTES.SHOPS, label: 'nav-menu-shops' },
-  { href: ROUTES.OFFERS, label: 'nav-menu-offer' },
+  // { href: ROUTES.SHOPS, label: 'nav-menu-shops' },
+  // { href: ROUTES.OFFERS, label: 'nav-menu-offer' },
+  // { href: ROUTES.PRIVACY, label: 'policy-main-title' },
   { href: ROUTES.HELP, label: 'nav-menu-faq' },
+  { href: ROUTES.ABOUT, label: 'nav-menu-about' },
   { href: ROUTES.CONTACT, label: 'nav-menu-contact' },
 ];
 
