@@ -46,7 +46,7 @@ const Details: React.FC<Props> = ({
     quantity,
     shop,
     slug,
-  } = product ?? {};
+  } = product?._doc ?? {};
   const { t } = useTranslation('common');
   const [_, setShowStickyShortDetails] = useAtom(stickyShortDetailsAtom);
 

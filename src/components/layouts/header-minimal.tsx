@@ -62,7 +62,7 @@ const HeaderMinimal = () => {
         ) : null}
 
         <div className="ms-10 hidden lg:flex items-center flex-shrink-0 space-s-9">
-          <GroupsDropdownMenu variant="minimal" />
+          {/* <GroupsDropdownMenu variant="minimal" /> */}
           <CartCounterIconButton />
           {isAuthorize ? <AuthorizedMenu minimal={true} /> : <JoinButton />}
         </div>
