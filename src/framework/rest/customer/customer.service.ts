@@ -13,18 +13,28 @@ export type ContactType = {
 };
 
 class Customer extends BaseService {
-  updateCustomer(input: CustomerType) {
+  createAddress(input: any) {
     return this.http
-      .put(this.basePath + '/' + input.id, input)
+      .post(API_ENDPOINTS.ADDRESS, input)
       .then((res) => res.data);
   }
-  contact(input: ContactType) {
-    return this.http.post(API_ENDPOINTS.CONTACT, input).then((res) => res.data);
+  updateAddress(input: any) {
+    return this.http
+      .put(API_ENDPOINTS.ADDRESS + '/' + input.id, input)
+      .then((res) => res.data);
   }
   deleteAddress({ id }: { id: string }) {
     return this.http
       .delete(`${API_ENDPOINTS.ADDRESS}/${id}`)
       .then((res) => res.data);
+  }
+  updateCustomer(input: CustomerType) {
+    return this.http
+      .put(API_ENDPOINTS.USER + '/' + input.id, input)
+      .then((res) => res.data);
+  }
+  contact(input: ContactType) {
+    return this.http.post(API_ENDPOINTS.CONTACT, input).then((res) => res.data);
   }
 }
 

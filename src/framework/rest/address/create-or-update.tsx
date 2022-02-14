@@ -1,10 +1,10 @@
-import { useUpdateCustomerMutation } from '@framework/customer/customer.query';
 import {
   useModalAction,
   useModalState,
 } from '@components/ui/modal/modal.context';
 import AddressForm from '@components/address/address-form';
 import { AddressType } from '@framework/utils/constants';
+import { useCreateAddressMutation, useUpdateAddressMutation } from './address.query';
 
 type FormValues = {
   __typename?: string;
@@ -23,8 +23,10 @@ const CreateOrUpdateAddressForm = () => {
   const {
     data: { customerId, address },
   } = useModalState();
+  console.log('address info: ', address)
   const { closeModal } = useModalAction();
-  const { mutate: updateProfile } = useUpdateCustomerMutation();
+  const { mutate: updateAddress } = useUpdateAddressMutation();
+  const { mutate: createAddress } = useCreateAddressMutation();
 
   function onSubmit(values: FormValues) {
     const formattedInput = {
@@ -37,11 +39,11 @@ const CreateOrUpdateAddressForm = () => {
         ...values.address,
       },
     };
-
-    updateProfile({
-      id: customerId,
-      address: [formattedInput],
-    });
+    if (address?.id) {
+      updateAddress(formattedInput);
+    } else {
+      createAddress(formattedInput);
+    }
     closeModal();
   }
   return <AddressForm onSubmit={onSubmit} />;

@@ -23,7 +23,7 @@ export const API_ENDPOINTS: Record<string, string> = {
   VERIFY_FORGET_PASSWORD: 'verify-forget-password-token',
   VERIFY_CHECKOUT: 'orders/checkout/verify',
   CONTACT: 'contact-us',
-  ADDRESS: 'address',
+  ADDRESS: 'addresses',
   SHOPS: 'shops',
   ORDER_TRACKING_NUMBER: 'tracking-number',
   REFUNDS: 'refunds',
