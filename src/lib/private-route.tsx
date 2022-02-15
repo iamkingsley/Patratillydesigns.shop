@@ -5,6 +5,7 @@ import { useRouter } from 'next/router';
 import { useAtom } from 'jotai';
 import { authorizationAtom } from '@store/authorization-atom';
 import { BackArrowRound } from '@components/icons/back-arrow-round';
+import { ROUTES } from './routes';
 
 const PrivateRoute: React.FC = ({ children }) => {
   const router = useRouter();
@@ -31,6 +32,7 @@ const PrivateRoute: React.FC = ({ children }) => {
 
   // Session is being fetched, or no user.
   // If no user, useEffect() will redirect.
+  router.push(ROUTES.LOGOUT)
   return <Loader showText={false} />;
 };
 

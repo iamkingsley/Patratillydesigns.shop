@@ -3,10 +3,14 @@ import { API_ENDPOINTS } from '@framework/utils/endpoints';
 import { authorizationAtom } from '@store/authorization-atom';
 import { useAtom } from 'jotai';
 import { QueryKey, useQuery, UseQueryOptions } from 'react-query';
-class CustomerService extends BaseService {}
-const customerService = new CustomerService(API_ENDPOINTS.CUSTOMER);
+class CustomerService extends BaseService {
+  getUser () {
+    return this.http.get(API_ENDPOINTS.CUSTOMER);
+  }
+}
+const customerService = new CustomerService(API_ENDPOINTS.CUSTOMERS);
 export const fetchMe = async () => {
-  const { data } = await customerService.findAll();
+  const { data } = await customerService.getUser();
   return { me: data };
 };
 
