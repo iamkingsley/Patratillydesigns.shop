@@ -5,6 +5,7 @@ import {
 import AddressForm from '@components/address/address-form';
 import { AddressType } from '@framework/utils/constants';
 import { useCreateAddressMutation, useUpdateAddressMutation } from './address.query';
+import useUser from '@framework/auth/use-user';
 
 type FormValues = {
   __typename?: string;
@@ -21,9 +22,9 @@ type FormValues = {
 
 const CreateOrUpdateAddressForm = () => {
   const {
-    data: { customerId, address },
+    data: { /*customerId,*/ address },
   } = useModalState();
-  console.log('address info: ', address)
+  const { me: { id: customerId } } = useUser();
   const { closeModal } = useModalAction();
   const { mutate: updateAddress } = useUpdateAddressMutation();
   const { mutate: createAddress } = useCreateAddressMutation();
