@@ -15,6 +15,7 @@ module.exports = withPWA({
       'lh3.googleusercontent.com',
       'localhost',
       '127.0.0.1',
+      'res.cloudinary.com',
     ],
   },
   ...(process.env.FRAMEWORK_PROVIDER === 'graphql' && {
