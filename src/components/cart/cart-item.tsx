@@ -53,7 +53,7 @@ const CartItem = ({ item }: CartItemProps) => {
 
       <div className="w-10 sm:w-16 h-10 sm:h-16 flex items-center justify-center overflow-hidden bg-gray-100 mx-4 flex-shrink-0 relative">
         <Image
-          src={item?.image ?? siteSettings?.product?.placeholderImage}
+          src={item?.image?.thumbnail ?? siteSettings?.product?.placeholderImage}
           alt={item.name}
           layout="fill"
           objectFit="contain"
