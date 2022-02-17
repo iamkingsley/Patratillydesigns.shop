@@ -29,10 +29,10 @@ const PrivateRoute: React.FC = ({ children }) => {
   if (isUser && isAuthorized) {
     return <>{children}</>;
   }
+  // router.push(ROUTES.LOGOUT)
 
   // Session is being fetched, or no user.
   // If no user, useEffect() will redirect.
-  router.push(ROUTES.LOGOUT)
   return <Loader showText={false} />;
 };
 

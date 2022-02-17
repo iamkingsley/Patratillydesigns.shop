@@ -8,7 +8,7 @@ import { productPlaceholder } from '@lib/placeholders';
 
 const OrderItemList = (_: any, record: any) => {
   const { price } = usePrice({
-    amount: record.pivot?.unit_price,
+    amount: record.pivot?.unit_price ?? record?.unit_price,
   });
   let name = record.name;
   if (record?.pivot?.variation_option_id) {
@@ -21,7 +21,7 @@ const OrderItemList = (_: any, record: any) => {
     <div className="flex items-center">
       <div className="w-16 h-16 flex flex-shrink-0 rounded overflow-hidden relative">
         <Image
-          src={record.image?.thumbnail ?? productPlaceholder}
+          src={record.image ?? productPlaceholder}
           alt={name}
           className="w-full h-full object-cover"
           layout="fill"
@@ -61,12 +61,12 @@ export const OrderItems = ({ products }: { products: any }) => {
       },
       {
         title: t('text-quantity'),
-        dataIndex: 'pivot',
-        key: 'pivot',
+        dataIndex: 'order_quantity',
+        key: 'order_quantity',
         align: 'center',
         width: 100,
-        render: function renderQuantity(pivot: any) {
-          return <p className="text-base">{pivot.order_quantity}</p>;
+        render: function renderQuantity(_: any, product: any) {
+          return <p className="text-base">{product?.order_quantity}</p>;
         },
       },
       {
@@ -75,9 +75,9 @@ export const OrderItems = ({ products }: { products: any }) => {
         key: 'price',
         align: alignRight,
         width: 100,
-        render: function RenderPrice(pivot: any) {
+        render: function RenderPrice(_: any, pivot: any) {
           const { price } = usePrice({
-            amount: pivot.subtotal,
+            amount: pivot?.subtotal,
           });
           return <p>{price}</p>;
         },
