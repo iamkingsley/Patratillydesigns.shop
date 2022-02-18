@@ -1,10 +1,10 @@
 import { ROUTES } from '@lib/routes';
 export const siteSettings = {
-  name: 'PatraTillyDesigns',
+  name: 'Patra Tilly Designs',
   description: '',
   logo: {
     url: '/patra-tilly.jpg',
-    alt: 'PatraTillyDesigns',
+    alt: 'Patra Tilly Designs',
     href: '/',
     width: 128,
     height: 40,
@@ -32,7 +32,7 @@ export const siteSettings = {
   authorizedLinksMobile: [
     { href: ROUTES.PROFILE, label: 'auth-menu-profile' },
     { href: ROUTES.ORDERS, label: 'auth-menu-my-orders' },
-    { href: ROUTES.REFUNDS, label: 'text-my-refunds' },
+    // { href: ROUTES.REFUNDS, label: 'text-my-refunds' },
     { href: ROUTES.CHECKOUT, label: 'auth-menu-checkout' },
     { href: ROUTES.CHANGE_PASSWORD, label: 'profile-sidebar-password' },
     { href: ROUTES.LOGOUT, label: 'auth-menu-logout' },
@@ -50,10 +50,10 @@ export const siteSettings = {
       href: ROUTES.ORDERS,
       label: 'profile-sidebar-orders',
     },
-    {
-      href: ROUTES.REFUNDS,
-      label: 'text-my-refunds',
-    },
+    // {
+    //   href: ROUTES.REFUNDS,
+    //   label: 'text-my-refunds',
+    // },
     {
       href: ROUTES.HELP,
       label: 'profile-sidebar-help',

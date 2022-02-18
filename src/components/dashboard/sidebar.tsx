@@ -16,7 +16,7 @@ const DashboardSidebar: React.FC<DashboardSidebarProps> = ({ className }) => {
   const { pathname } = useRouter();
   return (
     <aside className={className}>
-      <div className="bg-light rounded border border-border-200 overflow-hidden py-8 px-10 mb-5">
+      {/* <div className="bg-light rounded border border-border-200 overflow-hidden py-8 px-10 mb-5">
         <h3 className="text-heading font-semibold text-base pb-4 mb-4 border-b border-dashed border-border-200">
           {t('text-wallet')}
         </h3>
@@ -33,7 +33,7 @@ const DashboardSidebar: React.FC<DashboardSidebarProps> = ({ className }) => {
           <span>{t('text-available-points')}</span>
           <span>{me?.wallet?.available_points ?? 0}</span>
         </div>
-      </div>
+      </div> */}
 
       <div className="bg-light rounded border border-border-200 overflow-hidden">
         <ul className="py-8">
