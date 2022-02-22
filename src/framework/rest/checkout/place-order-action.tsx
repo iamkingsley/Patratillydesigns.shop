@@ -17,9 +17,11 @@ import {
   calculatePaidTotal,
   calculateTotal,
 } from '@store/quick-cart/cart.utils';
+import useUser from '@framework/auth/use-user';
 
 export const PlaceOrderAction: React.FC = (props) => {
   const router = useRouter();
+  const { me } = useUser();
 
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
   const { mutate: createOrder, isLoading: loading } = useCreateOrderMutation();
@@ -85,6 +87,7 @@ export const PlaceOrderAction: React.FC = (props) => {
       total,
       delivery_time: delivery_time?.title,
       customer_contact,
+      customer: me,
       payment_gateway,
       use_wallet_points,
       billing_address: {
