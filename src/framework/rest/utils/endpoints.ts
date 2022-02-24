@@ -27,4 +27,5 @@ export const API_ENDPOINTS: Record<string, string> = {
   SHOPS: 'shops',
   ORDER_TRACKING_NUMBER: 'tracking-number',
   REFUNDS: 'refunds',
+  USERS: 'users',
 };
