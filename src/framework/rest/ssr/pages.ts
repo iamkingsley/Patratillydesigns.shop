@@ -1,7 +1,7 @@
 import { fetchSettings } from '@framework/app/settings.query';
 import { fetchCategories } from '@framework/categories/categories.query';
 import { fetchGroups, fetchGroup } from '@framework/groups/groups.query';
-import { fetchProducts } from '@framework/products/products.query';
+import { fetchFeaturedProducts, fetchProducts } from '@framework/products/products.query';
 import { API_ENDPOINTS } from '@framework/utils/endpoints';
 import { GetStaticPathsContext, GetStaticProps } from 'next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
@@ -35,6 +35,13 @@ export const getStaticProps: GetStaticProps = async ({ locale, params }) => {
   await queryClient.prefetchInfiniteQuery(
     [API_ENDPOINTS.PRODUCTS, { type: pageType }],
     fetchProducts,
+    {
+      staleTime: 60 * 1000,
+    }
+  );
+  await queryClient.prefetchQuery(
+    [API_ENDPOINTS.FEATURED_PRODUCTS, { limit: 100 }],
+    fetchFeaturedProducts,
     {
       staleTime: 60 * 1000,
     }

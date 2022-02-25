@@ -5,6 +5,8 @@ import { productPlaceholder } from '@lib/placeholders';
 import { useIsRTL } from '@lib/locals';
 import { ArrowNext, ArrowPrev } from '@components/icons';
 import { useTranslation } from 'next-i18next';
+import Button from '@components/ui/button';
+import { useModalAction } from '@components/ui/modal/modal.context';
 
 interface BannerProps {
   banners: Banner[] | undefined;
@@ -15,6 +17,11 @@ const BannerShort: React.FC<BannerProps> = ({ banners }) => {
   const { t } = useTranslation('common');
   const { isRTL } = useIsRTL();
 
+  const { openModal } = useModalAction();
+
+  function handleProductQuickView(slug: string) {
+    return openModal('PRODUCT_DETAILS', slug);
+  }
   return (
     <div className="relative">
       <div className="overflow-hidden -z-1">
@@ -30,18 +37,57 @@ const BannerShort: React.FC<BannerProps> = ({ banners }) => {
               nextEl: '.next',
               prevEl: '.prev',
             }}
+            autoplay={true}
+            breakpoints={{
+              '@0.75': {
+                slidesPerView: 2,
+                spaceBetween: 10,
+              },
+              '@1.00': {
+                slidesPerView: 2,
+                spaceBetween: 10,
+              },
+              // '@1.50': {
+              //   slidesPerView: 3,
+              //   spaceBetween: 10,
+              // },
+              1600: {
+                slidesPerView: 3,
+                spaceBetween: 10
+              }
+            }}
           >
             {banners?.map((banner, idx) => (
               <SwiperSlide key={idx}>
-                <div className="relative w-full h-full max-h-[240px] md:max-h-[450px]">
+                {/* <div className="relative flex flex-col justify-center items-center w-full h-full max-h-[240px] md:max-h-[450px] md:p-10"
+                  style={{
+                    backgroundImage: banner?.image ?
+                      `url(${banner.image.original})` : `url(${productPlaceholder})`,
+                    width: '100%',
+                    height: 450,
+                    backgroundRepeat: "no-repeat",
+                    backgroundSize: '100%'
+                  }}
+                >
+                  <p className="mb-5 text-3xl font-bold">{banner?.name}</p>
+                  <p className="text-heading text-sm font-semibold mb-5 w-[200px] sm:w-[500px]">{banner.description}</p>
+                  <Button onClick={() => handleProductQuickView(banner.slug)}>View Details</Button>
+                </div> */}
+                <div className='flex flex-row justify-around items-center relative w-full h-full max-h-[250px] sm:max-h-[450px] md:max-h-[450px] md:p-10'>
                   <Image
                     className="w-full h-full"
                     src={banner.image?.original ?? productPlaceholder}
-                    alt={banner.title ?? ''}
-                    layout="responsive"
-                    width={1503}
+                    alt={banner?.name ?? banner?.title}
+                    // layout="fill"
+                    // objectFit='contain'
+                    width={450}
                     height={450}
                   />
+                  <div className='flex flex-col w-1/2 sm:w-1/2 md:w-1/2 p-5'>
+                    <p className="mb-5 font-bold truncate">{banner?.name}</p>
+                    <p className="text-heading text-sm font-semibold mb-5">{banner.description}</p>
+                    <Button variant='normal' onClick={() => handleProductQuickView(banner.slug)}>View Details</Button>
+                  </div>
                 </div>
               </SwiperSlide>
             ))}

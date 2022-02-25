@@ -66,3 +66,24 @@ export const useProductQuery = (slug: string) => {
     fetchProduct(slug)
   );
 };
+
+const fetchFeaturedProducts = async ({ queryKey }: QueryParamsType) => {
+  const [_key, params] = queryKey;
+  const { limit = 15, shop_id } = params as { limit: number; shop_id: number };
+  const searchString = JSON.stringify({shop_id});
+  const url = `${API_ENDPOINTS.FEATURED_PRODUCTS}?search=${searchString}&limit=${limit}`;
+  const data = await productService.get(url);
+  return data;
+};
+
+const useFeaturedProductsQuery = (options: {
+  limit: number;
+  shop_id?: number;
+}) => {
+  return useQuery<Product[], Error>(
+    [API_ENDPOINTS.FEATURED_PRODUCTS, options],
+    fetchFeaturedProducts
+  );
+};
+
+export { useFeaturedProductsQuery, fetchFeaturedProducts };

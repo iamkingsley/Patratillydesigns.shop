@@ -59,7 +59,9 @@ export type QueryParamsType = {
 };
 export type Banner = {
   title: string;
+  name: string;
   description: string;
+  slug: string;
   image: {
     id: string;
     original: string;

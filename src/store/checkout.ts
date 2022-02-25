@@ -1,4 +1,4 @@
-import { Address, Coupon } from '@framework/types';
+import { Address, Coupon, User } from '@framework/types';
 import { CHECKOUT } from '@lib/constants';
 import { atom } from 'jotai';
 import { atomWithStorage } from 'jotai/utils';
@@ -20,6 +20,7 @@ interface CheckoutState {
   payment_gateway: PaymentMethodName;
   delivery_time: DeliveryTime | null;
   customer_contact: string;
+  customer: User | null,
   verified_response: VerifiedResponse | null;
   coupon: Coupon | null;
   payable_amount: number;
@@ -32,6 +33,7 @@ export const defaultCheckout: CheckoutState = {
   delivery_time: null,
   payment_gateway: 'STRIPE',
   customer_contact: '',
+  customer: null,
   verified_response: null,
   coupon: null,
   payable_amount: 0,

@@ -8,7 +8,7 @@ const Modern = () => {
   return (
     <div className="flex flex-1 bg-gray-100">
       <div className="sticky top-22 h-full lg:w-[380px] hidden xl:block bg-gray-100">
-        <Categories layout="modern" />
+        <Categories layout="classic" />
       </div>
 
       <main className="w-full xl:overflow-hidden block lg:mt-6 xl:ps-0 xl:pe-5">
