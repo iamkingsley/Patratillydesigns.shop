@@ -4,11 +4,19 @@ import { toast } from 'react-toastify';
 import { ContactType, CustomerService, CustomerType } from './customer.service';
 
 export const useUpdateCustomerMutation = () => {
+  const { t } = useTranslation();
   const queryClient = useQueryClient();
 
   return useMutation(
     (input: CustomerType) => CustomerService.updateCustomer(input),
     {
+      onSuccess: (data) => {
+        if (data.success) {
+          toast.success(t("common:successfully-updated"));
+        } else {
+          toast.error(t(data.message));
+        }
+      },
       // Always refetch after error or success:
       onSettled: () => {
         queryClient.invalidateQueries('me');

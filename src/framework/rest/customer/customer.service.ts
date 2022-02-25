@@ -30,7 +30,7 @@ class Customer extends BaseService {
   }
   updateCustomer(input: CustomerType) {
     return this.http
-      .put(API_ENDPOINTS.USER + '/' + input.id, input)
+      .put(API_ENDPOINTS.USERS + '/' + input.id, input)
       .then((res) => res.data);
   }
   contact(input: ContactType) {
