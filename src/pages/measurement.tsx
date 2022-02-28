@@ -244,7 +244,7 @@ const MeasurementPage = () => {
 
       <div className="mb-4 text-end">
         <Button loading={loading} disabled={loading}>
-          {t("button-label-create-customer")}
+          {t("save")}
         </Button>
       </div>
     </form>      
