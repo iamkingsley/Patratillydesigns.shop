@@ -4,7 +4,7 @@ import Categories from '@framework/categories/categories';
 const Minimal = () => {
   return (
     <>
-      <Banner layout="minimal" />
+      {/* <Banner layout="minimal" /> */}
       <Categories layout="minimal" />
     </>
   );

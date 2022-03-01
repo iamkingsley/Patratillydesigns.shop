@@ -9,7 +9,7 @@ import FilterBar from './filter-bar';
 const Classic = () => {
   return (
     <>
-      <Banner layout="classic" />
+      {/* <Banner layout="classic" /> */}
       <PromotionSliders />
       <FilterBar />
       <Element

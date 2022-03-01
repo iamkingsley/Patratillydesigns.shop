@@ -6,7 +6,7 @@ import FilterBar from './filter-bar';
 const Standard = () => {
   return (
     <>
-      <Banner layout="standard" />
+      {/* <Banner layout="standard" /> */}
       <FilterBar />
       <Categories layout="standard" />
       <main className="flex-1">
