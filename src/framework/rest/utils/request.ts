@@ -2,7 +2,7 @@ import axios from 'axios';
 import { getToken } from './get-token';
 
 const request = axios.create({
-  baseURL: 'https://patra-tilly-server.herokuapp.com/api/',
+  baseURL: process.env.NEXT_PUBLIC_REST_API_ENDPOINT,
   timeout: 30000,
   headers: {
     Accept: 'application/json',
