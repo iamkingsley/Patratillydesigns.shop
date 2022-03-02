@@ -12,6 +12,7 @@ import { useIsHomePage } from '@lib/use-is-homepage';
 import { useEffect } from 'react';
 import SearchWithSuggestion from '@components/ui/search/search-with-suggestion';
 
+const Search = dynamic(() => import('@components/ui/search/search'));
 const CartCounterIconButton = dynamic(
   () => import('@components/cart/cart-counter-icon-button'),
   { ssr: false }
@@ -50,6 +51,10 @@ const HeaderMinimal = () => {
 
         {isHomePage ? (
           <>
+            <div className="hidden lg:block xl:w-4/12 2xl:w-5/12 mx-auto px-10 overflow-hidden">
+              <Search label={t('text-search-label')} variant="minimal" />
+            </div>
+
             {displayMobileHeaderSearch && (
               <div className="block lg:hidden w-full absolute top-0 start-0 h-full bg-light pt-1.5 md:pt-2 px-5">
                 <SearchWithSuggestion
@@ -58,7 +63,7 @@ const HeaderMinimal = () => {
                 />
               </div>
             )}
-          </>
+        </>
         ) : null}
 
         <div className="ms-10 hidden lg:flex items-center flex-shrink-0 space-s-9">
