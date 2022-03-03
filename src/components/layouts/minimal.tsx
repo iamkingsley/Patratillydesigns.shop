@@ -6,10 +6,10 @@ import FilterBar from './filter-bar';
 const Minimal = () => {
   return (
     <>
-      <Banner layout="minimal" />
+      <Banner layout="modern" />
       {/* <FilterBar /> */}
-      <Categories layout="standard" />
-      <main className="flex-1">
+      <main className="flex-1 w-full lg:w-11/12 mx-auto">
+        <Categories layout="standard" />
         <Products layout="standard" />
       </main>
     </>

@@ -5,8 +5,6 @@ import { productPlaceholder } from '@lib/placeholders';
 import { useIsRTL } from '@lib/locals';
 import { ArrowNext, ArrowPrev } from '@components/icons';
 import { useTranslation } from 'next-i18next';
-import Button from '@components/ui/button';
-import { useModalAction } from '@components/ui/modal/modal.context';
 
 interface BannerProps {
   banners: Banner[] | undefined;
@@ -17,16 +15,10 @@ const BannerShort: React.FC<BannerProps> = ({ banners }) => {
   const { t } = useTranslation('common');
   const { isRTL } = useIsRTL();
 
-  const { openModal } = useModalAction();
-
-  function handleProductQuickView(slug: string) {
-    return openModal('PRODUCT_DETAILS', slug);
-  }
   return (
-    <div className="relative bg-light">
+    <div className="relative">
       <div className="overflow-hidden -z-1">
         <div className="relative">
-          <p className='text-md font-bold p-3'>Featured Products</p>
           <Swiper
             id="banner"
             loop={true}
@@ -38,62 +30,19 @@ const BannerShort: React.FC<BannerProps> = ({ banners }) => {
               nextEl: '.next',
               prevEl: '.prev',
             }}
-            autoplay={true}
-            // breakpoints={{
-            //   '@0.75': {
-            //     slidesPerView: 2,
-            //     spaceBetween: 10,
-            //   },
-            //   '@1.00': {
-            //     slidesPerView: 2,
-            //     spaceBetween: 10,
-            //   },
-            //   // '@1.50': {
-            //   //   slidesPerView: 3,
-            //   //   spaceBetween: 10,
-            //   // },
-            //   1600: {
-            //     slidesPerView: 3,
-            //     spaceBetween: 10
-            //   }
-            // }}
           >
             {banners?.map((banner, idx) => (
               <SwiperSlide key={idx}>
-                <div className="relative flex flex-col justify-center items-center w-full h-full max-h-[240px] md:max-h-[450px] md:p-10"
-                  style={{
-                    backgroundImage: banner?.image ?
-                      `url(${banner.image.original})` : `url(${productPlaceholder})`,
-                    // backgroundImage: 'url(https://pickbazarlaravel.s3.ap-southeast-1.amazonaws.com/908/conversions/cloths-thumbnail.jpg)',
-                    width: '100%',
-                    height: 450,
-                    backgroundRepeat: "no-repeat",
-                    backgroundSize: 'contain',
-                    backgroundPosition: 'center',
-                    backgroundClip: 'border-box',
-                  }}
-                  onClick={() => handleProductQuickView(banner.slug)}
-                >
-                  {/* <p className="mb-5 text-2xl font-bold">{banner?.name}</p> */}
-                  {/* <p className="text-heading text-sm font-semibold mb-5 w-[200px] sm:w-[500px]">{banner.description}</p> */}
-                  <Button onClick={() => handleProductQuickView(banner.slug)}>View Details</Button>
-                </div>
-                {/* <div className='flex flex-row justify-around items-center relative w-full h-full max-h-[250px] sm:max-h-[450px] md:max-h-[450px] md:p-10'>
+                <div className="relative w-full h-full max-h-[240px] md:max-h-[450px]">
                   <Image
                     className="w-full h-full"
                     src={banner.image?.original ?? productPlaceholder}
-                    alt={banner?.name ?? banner?.title}
-                    // layout="fill"
-                    // objectFit='contain'
-                    width={450}
+                    alt={banner.title ?? ''}
+                    layout="responsive"
+                    width={1503}
                     height={450}
                   />
-                  <div className='flex flex-col w-1/2 sm:w-1/2 md:w-1/2 p-5'>
-                    <p className="mb-5 text-md font-semibold truncate">{banner?.name}</p>
-                    <p className="text-heading text-sm mb-5">{banner.description}</p>
-                    <Button variant='normal' onClick={() => handleProductQuickView(banner.slug)}>View Details</Button>
-                  </div>
-                </div> */}
+                </div>
               </SwiperSlide>
             ))}
           </Swiper>

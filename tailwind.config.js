@@ -23,6 +23,7 @@ module.exports = {
         '-1': '-1',
       },
       fontFamily: {
+        'serif': ['serif'],
         body: ['Open Sans', 'system-ui', 'sans-serif'],
         heading: ['Open Sans', 'system-ui', 'sans-serif'],
       },

@@ -16,7 +16,7 @@ const Logo: React.FC<React.AnchorHTMLAttributes<{}>> = ({
           src={logo?.original ?? logoPlaceholder}
           alt={siteTitle || 'PatraTillyDesigns Logo'}
           layout="fill"
-          objectFit="contain"
+          objectFit="cover"
           loading="eager"
         />
       </span>

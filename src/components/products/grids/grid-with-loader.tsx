@@ -5,7 +5,8 @@ import NotFound from '@components/ui/not-found';
 import { useTranslation } from 'next-i18next';
 import rangeMap from '@lib/range-map';
 const styles = {
-  standard: 'md:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-7',
+  // standard: 'md:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-7',
+  standard: 'md:grid-cols-3 lg:grid-cols-4 gap-6',
   shop: 'lg:grid-cols-2 xl:grid-cols-4 3xl:grid-cols-6',
   minimal:
     'grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-6',
@@ -50,7 +51,8 @@ const GridWithLoader: React.FC<GridWithLoaderProps> = ({
       })}
     >
       <div
-        className={cn('grid grid-cols-2 sm:grid-cols-2 gap-3', {
+        // className={cn('grid grid-cols-2 sm:grid-cols-2 gap-3', {
+        className={cn('grid grid-cols-2 sm:grid-cols-2 gap-6', {
           [styles.standard]: layout === 'standard',
           [styles.shop]: layout === 'shop',
           [styles.minimal]: layout === 'minimal',

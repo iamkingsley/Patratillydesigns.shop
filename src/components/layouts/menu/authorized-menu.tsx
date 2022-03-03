@@ -51,12 +51,12 @@ const AuthorizedMenu: React.FC<{ minimal?: boolean }> = ({ minimal }) => {
             }
           )}
         >
-          <Menu.Item>
+          {/* <Menu.Item>
             <li className="flex justify-between items-center w-full py-4 px-6 text-xs text-start font-semibold capitalize text-light focus:outline-none bg-accent-500">
               <span>{t('text-points')}</span>
               <span>{me?.wallet?.available_points ?? 0}</span>
             </li>
-          </Menu.Item>
+          </Menu.Item> */}
           {siteSettings.authorizedLinks.map(({ href, label }) => (
             <Menu.Item key={`${href}${label}`}>
               {({ active }) => (
