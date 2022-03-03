@@ -1,6 +1,7 @@
-import Logo from '@components/ui/logo';
 import cn from 'classnames';
-import GroupsDropdownMenu from '@framework/groups/dropdown-menu';
+import { motion } from 'framer-motion';
+import Logo from '@components/ui/logo';
+// import GroupsDropdownMenu from '@framework/groups/dropdown-menu';
 import StaticMenu from './menu/static-menu';
 import { useAtom } from 'jotai';
 import { displayHeaderSearchAtom } from '@store/display-header-search-atom';
@@ -11,7 +12,9 @@ import { authorizationAtom } from '@store/authorization-atom';
 import { useIsHomePage } from '@lib/use-is-homepage';
 import { useEffect } from 'react';
 import SearchWithSuggestion from '@components/ui/search/search-with-suggestion';
+import { SearchIcon } from '@components/icons/search-icon';
 
+const Search = dynamic(() => import('@components/ui/search/search'));
 const CartCounterIconButton = dynamic(
   () => import('@components/cart/cart-counter-icon-button'),
   { ssr: false }
@@ -23,8 +26,9 @@ const JoinButton = dynamic(() => import('./menu/join-button'), { ssr: false });
 
 const HeaderMinimal = () => {
   const { t } = useTranslation('common');
-  const [_, setDisplayHeaderSearch] = useAtom(displayHeaderSearchAtom);
-  const [displayMobileHeaderSearch] = useAtom(displayMobileHeaderSearchAtom);
+  const [displayHeaderSearch, setDisplayHeaderSearch] = useAtom(displayHeaderSearchAtom);
+  const [displayMobileHeaderSearch, setDisplayMobileHeaderSearch] = useAtom(displayMobileHeaderSearchAtom);
+
   const [isAuthorize] = useAtom(authorizationAtom);
   const isHomePage = useIsHomePage();
   useEffect(() => {
@@ -32,6 +36,11 @@ const HeaderMinimal = () => {
       setDisplayHeaderSearch(false);
     }
   }, [isHomePage, setDisplayHeaderSearch]);
+
+  function toggelHeaderSearch() {
+    setDisplayHeaderSearch((prev) => !prev);
+    setDisplayMobileHeaderSearch((prev) => !prev);
+  }
 
   return (
     <header className={cn('site-header-with-search h-14 md:h-16 lg:h-22')}>
@@ -50,6 +59,10 @@ const HeaderMinimal = () => {
 
         {isHomePage ? (
           <>
+            <div className="hidden xl:block xl:w-3/12 2xl:w-3/12 mx-auto px-10 overflow-hidden">
+              <Search label={t('text-search-label')} variant="minimal" />
+            </div>
+
             {displayMobileHeaderSearch && (
               <div className="block lg:hidden w-full absolute top-0 start-0 h-full bg-light pt-1.5 md:pt-2 px-5">
                 <SearchWithSuggestion
@@ -58,11 +71,27 @@ const HeaderMinimal = () => {
                 />
               </div>
             )}
-          </>
+            {displayHeaderSearch && (
+              <div className="hidden lg:block xl:hidden w-9/12 mx-auto absolute h-full bg-light pt-1.5 md:pt-4 px-5">
+                <SearchWithSuggestion
+                  label={t('text-search-label')}
+                  variant="minimal"
+                />
+              </div>
+            )}
+        </>
         ) : null}
 
         <div className="ms-10 hidden lg:flex items-center flex-shrink-0 space-s-9">
           {/* <GroupsDropdownMenu variant="minimal" /> */}
+          <motion.button
+            whileTap={{ scale: 0.88 }}
+            onClick={toggelHeaderSearch} 
+            className="block xl:hidden"
+          >
+            <SearchIcon width="17.05" height="18" />
+          </motion.button>
+          
           <CartCounterIconButton />
           {isAuthorize ? <AuthorizedMenu minimal={true} /> : <JoinButton />}
         </div>

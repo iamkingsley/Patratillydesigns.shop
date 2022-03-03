@@ -1,10 +1,9 @@
 import React from 'react';
-import logoPlaceholder from '@assets/placeholders/patra-tilly.jpg';
 const siteSettings = {
-  name: 'Patra Tilly Designs E-commerce Shop',
+  name: 'Patra Tilly Designs E-commerce',
   description: '',
-  currencyCode: 'USD',
-  logo: logoPlaceholder,
+  currencyCode: 'GHS',
+  logo: '@assets/patra-tilly-variant.png',
 };
 
 type State = typeof initialState;
@@ -13,7 +12,7 @@ const initialState = {
   siteTitle: siteSettings.name,
   siteSubtitle: siteSettings.description,
   currency: siteSettings.currencyCode,
-  logo: null,
+  logo: siteSettings.logo,
   seo: {
     metaTitle: '',
     metaDescription: '',

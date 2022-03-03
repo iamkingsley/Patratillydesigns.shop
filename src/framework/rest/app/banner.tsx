@@ -28,15 +28,13 @@ const Banner: React.FC<{ layout: string }> = ({ layout }) => {
     () => router.query.pages?.[0] ?? homePage?.slug,
     [router.query.pages, homePage]
   );
-  // const { data, error } = useGroupQuery(group?.toString()!);
-  const { data, error } = useFeaturedProductsQuery({limit: 105});
+  const { data, error } = useGroupQuery(group?.toString()!);
 
   if (error) return <ErrorMessage message={error.message} />;
   const Component = layout
     ? MAP_BANNER_TO_GROUP[layout]
     : MAP_BANNER_TO_GROUP['default'];
-  // return <Component banners={data?.type?.banners} layout={layout} />;
-  return <Component banners={data} layout={layout} />;
+  return <Component banners={data?.type?.banners} layout={layout} />;
 };
 
 export default Banner;

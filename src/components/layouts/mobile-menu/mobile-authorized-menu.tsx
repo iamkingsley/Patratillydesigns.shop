@@ -19,19 +19,6 @@ export default function MobileAuthorizedMenu() {
   return (
     <DrawerWrapper>
       <ul className="flex-grow">
-        <li className="flex justify-between items-center w-full pt-3 px-5 md:px-8 text-sm text-start font-semibold capitalize text-body focus:outline-none border-t border-dashed border-border-200 bg-gray-100">
-          <span>{t('text-total-points')}</span>
-          <span>{me?.wallet?.total_points}</span>
-        </li>
-        <li className="flex justify-between items-center w-full pt-3 px-5 md:px-8 text-sm text-start font-semibold capitalize text-body focus:outline-none bg-gray-100">
-          <span>{t('text-points-used')}</span>
-          <span>{me?.wallet?.points_used}</span>
-        </li>
-        <li className="flex justify-between items-center w-full py-3 px-5 md:px-8 text-sm text-start font-semibold capitalize text-body focus:outline-none border-b border-dashed border-border-200 bg-gray-100">
-          <span>{t('text-available-points')}</span>
-          <span>{me?.wallet?.available_points}</span>
-        </li>
-
         {siteSettings.authorizedLinksMobile.map(({ href, label }) => (
           <li key={`${href}${label}`}>
             <span
