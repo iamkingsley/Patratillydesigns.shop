@@ -26,6 +26,7 @@ const BannerShort: React.FC<BannerProps> = ({ banners }) => {
             resizeObserver={true}
             allowTouchMove={false}
             slidesPerView={1}
+            autoplay={{delay: 5000}}
             navigation={{
               nextEl: '.next',
               prevEl: '.prev',

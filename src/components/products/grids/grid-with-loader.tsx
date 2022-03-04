@@ -52,7 +52,7 @@ const GridWithLoader: React.FC<GridWithLoaderProps> = ({
     >
       <div
         // className={cn('grid grid-cols-2 sm:grid-cols-2 gap-3', {
-        className={cn('grid grid-cols-2 sm:grid-cols-2 gap-6', {
+        className={cn('grid grid-cols-2 sm:grid-cols-2 gap-3', {
           [styles.standard]: layout === 'standard',
           [styles.shop]: layout === 'shop',
           [styles.minimal]: layout === 'minimal',

@@ -20,7 +20,7 @@ const StaticMenu = () => {
       <li>
         <Link
           href={ROUTES.HOME}
-          className="font-bold text-heading font-serif transition duration-200 no-underline"
+          className="font-bold text-xl font-serif transition duration-200 no-underline"
         >
           PATRA TILLY DESIGNS
         </Link>
