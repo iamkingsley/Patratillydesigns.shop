@@ -28,7 +28,8 @@ const StickySidebarBoxedCategories: React.FC<StickySidebarBoxedCategoriesProps> 
         <Scrollbar style={{ maxHeight: 'calc(100vh - 88px)' }}>
           <div className="p-5">
             {!notFound ? (
-              <div className="grid grid-cols-2 gap-4">
+              // <div className="grid grid-cols-2 gap-4">
+              <div className="flex justify-center">
                 <OutlinedBoxedCategoryMenu
                   items={categories}
                   className="py-8"
