@@ -22,8 +22,8 @@ const SlidingVerticalRectangleCategories: React.FC<SlidingVerticalRectangleCateg
     return (
       <div className="w-full bg-gray-100">
         {!notFound ? (
-          <div className="pt-5 px-4 lg:p-8 lg:pb-0">
-            <SolidBoxedCategoryMenu items={categories} className="py-8" />
+          <div className="py-3 lg:pb-0">
+            <SolidBoxedCategoryMenu items={categories} />
           </div>
         ) : (
           <div className="min-h-full pt-6 pb-8 px-9 lg:p-8">

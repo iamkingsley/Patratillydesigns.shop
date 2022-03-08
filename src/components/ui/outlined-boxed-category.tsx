@@ -42,7 +42,7 @@ const CategoryItem: React.FC<CategoryItemProps> = ({ item }) => {
   return (
     <div
       className={cn(
-        'text-center rounded bg-light py-4 flex flex-col items-center justify-center relative overflow-hidden cursor-pointer border-2',
+        'text-center rounded bg-light py-4 flex flex-col items-center justify-start relative overflow-hidden cursor-pointer border-2',
         selectedQueries === item?.slug
           ? 'border-gray-800'
           : 'border-border-100 xl:border-transparent'

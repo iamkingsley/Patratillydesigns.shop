@@ -13,6 +13,7 @@ const useLayout = () => {
     };
   }
   const page = data?.types.find((type) => router.asPath.includes(type.slug));
+  // const page = data?.types.find((type) => type?.settings?.isHome) ?? data?.types?.[0];
   return {
     layout: page?.settings?.layoutType,
     page,
