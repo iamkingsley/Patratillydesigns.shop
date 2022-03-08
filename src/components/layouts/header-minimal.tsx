@@ -84,13 +84,13 @@ const HeaderMinimal = () => {
 
         <div className="ms-10 hidden lg:flex items-center flex-shrink-0 space-s-9">
           {/* <GroupsDropdownMenu variant="minimal" /> */}
-          <motion.button
-            whileTap={{ scale: 0.88 }}
-            onClick={toggelHeaderSearch} 
-            className="block xl:hidden"
-          >
-            <SearchIcon width="17.05" height="18" />
-          </motion.button>
+          {isHomePage && <SearchIcon
+              width="17.05" 
+              height="18" 
+              className="block xl:hidden cursor-pointer"
+              onClick={toggelHeaderSearch}
+            />
+          }
           
           <CartCounterIconButton />
           {isAuthorize ? <AuthorizedMenu minimal={true} /> : <JoinButton />}

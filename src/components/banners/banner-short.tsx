@@ -1,3 +1,4 @@
+import cn from 'classnames';
 import { Swiper, SwiperSlide, Navigation } from '@components/ui/slider';
 import { Image } from '@components/ui/image';
 import { Banner } from '@framework/types';
@@ -5,6 +6,9 @@ import { productPlaceholder } from '@lib/placeholders';
 import { useIsRTL } from '@lib/locals';
 import { ArrowNext, ArrowPrev } from '@components/icons';
 import { useTranslation } from 'next-i18next';
+import SearchWithSuggestion from '@components/ui/search/search-with-suggestion';
+import useLayout from '@framework/utils/use-layout';
+import { Autoplay } from 'swiper';
 
 interface BannerProps {
   banners: Banner[] | undefined;
@@ -14,7 +18,7 @@ interface BannerProps {
 const BannerShort: React.FC<BannerProps> = ({ banners }) => {
   const { t } = useTranslation('common');
   const { isRTL } = useIsRTL();
-
+  const { layout } = useLayout();
   return (
     <div className="relative">
       <div className="overflow-hidden -z-1">
@@ -22,11 +26,11 @@ const BannerShort: React.FC<BannerProps> = ({ banners }) => {
           <Swiper
             id="banner"
             loop={true}
-            modules={[Navigation]}
+            modules={[Navigation, Autoplay]}
             resizeObserver={true}
             allowTouchMove={false}
             slidesPerView={1}
-            autoplay={{delay: 5000}}
+            autoplay={{delay: 3000}}
             navigation={{
               nextEl: '.next',
               prevEl: '.prev',
@@ -34,7 +38,7 @@ const BannerShort: React.FC<BannerProps> = ({ banners }) => {
           >
             {banners?.map((banner, idx) => (
               <SwiperSlide key={idx}>
-                <div className="relative w-full h-full max-h-[240px] md:max-h-[450px]">
+                {/* <div className="relative w-full h-full max-h-[240px] md:max-h-[450px]">
                   <Image
                     className="w-full h-full"
                     src={banner.image?.original ?? productPlaceholder}
@@ -43,6 +47,55 @@ const BannerShort: React.FC<BannerProps> = ({ banners }) => {
                     width={1503}
                     height={450}
                   />
+                </div> */}
+                <div
+                  className={cn('hidden lg:block relative', {
+                    '!block': layout === 'minimal',
+                  })}
+                >
+                  <div
+                    className={cn('relative w-full h-screen', {
+                      'max-h-140': layout === 'standard',
+                      'max-h-[320px] md:max-h-[680px]': layout === 'minimal',
+                    })}
+                  >
+                    <Image
+                      className="w-full h-full min-h-140"
+                      src={banner?.image?.original ?? productPlaceholder}
+                      alt={banner?.title ?? ''}
+                      layout="fill"
+                      objectFit="cover"
+                    />
+                    <div
+                      className={cn(
+                        'p-5 md:px-20 absolute inset-0 w-full flex flex-col items-center justify-center text-center lg:space-y-10',
+                        {
+                          'space-y-5 md:!space-y-8': layout === 'minimal',
+                        }
+                      )}
+                    >
+                      <h1
+                        className={cn(
+                          'text-2xl md:text-3xl lg:text-4xl xl:text-5xl tracking-tight text-heading font-bold',
+                          // {
+                          //   '!text-accent': layout === 'minimal',
+                          // }
+                        )}
+                      >
+                        {banner?.title}
+                      </h1>
+                      <p className="text-sm md:text-base xl:text-lg text-body">
+                        {banner?.description}
+                      </p>
+                      {/* <div className="max-w-3xl w-full">
+                        <SearchWithSuggestion
+                          label="search"
+                          className="hidden lg:block"
+                          variant="with-shadow"
+                        />
+                      </div> */}
+                    </div>
+                  </div>
                 </div>
               </SwiperSlide>
             ))}

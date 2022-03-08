@@ -17,7 +17,7 @@ const MAP_BANNER_TO_GROUP: Record<string, any> = {
   classic: BannerWithSearch,
   modern: BannerShort,
   standard: BannerWithSearch,
-  minimal: BannerWithoutSlider,
+  minimal: BannerShort, // BannerWithoutSlider,
   default: BannerWithSearch,
 };
 
