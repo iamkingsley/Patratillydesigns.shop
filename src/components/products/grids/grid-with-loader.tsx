@@ -45,7 +45,7 @@ const GridWithLoader: React.FC<GridWithLoaderProps> = ({
   }
   return (
     <div
-      className={cn('flex-1 bg-gray-100 pb-8 px-4 lg:p-3 ', {
+      className={cn('flex-1 bg-gray-100 pb-8', {
         'px-0 lg:px-0': layout === 'shop' || layout === 'modern' || layout === 'standard',
         '!bg-transparent !p-0': layout === 'minimal',
       })}
