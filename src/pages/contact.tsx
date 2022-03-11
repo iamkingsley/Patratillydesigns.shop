@@ -10,6 +10,7 @@ import isEmpty from 'lodash/isEmpty';
 import * as socialIcons from '@components/icons/social';
 export { getStaticProps } from '@framework/ssr/common';
 import Location from '@components/contact/map';
+import Footer from '@components/footer/footer';
 
 export const ContactPage = () => {
   const { t } = useTranslation('common');
@@ -106,6 +107,7 @@ export const ContactPage = () => {
           <Contact />
         </div>
       </div>
+          <Footer />
     </div>
   );
 };
