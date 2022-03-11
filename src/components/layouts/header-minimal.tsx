@@ -43,10 +43,10 @@ const HeaderMinimal = () => {
   }
 
   return (
-    <header className={cn('site-header-with-search h-16 lg:h-22')}>
+    <header className={cn('site-header-with-search h-17 lg:h-22')}>
       <div
         className={cn(
-          'flex justify-between items-center w-full h-16 lg:h-22 px-4 lg:ps-12 lg:pe-8 z-50 fixed bg-light border-b border-border-200 shadow-sm transition-transform duration-300'
+          'flex justify-between items-center w-full px-4 lg:ps-12 lg:pe-8 z-50 fixed bg-light border-b border-border-200 shadow-sm transition-transform duration-300'
         )}
       >
         <div className="flex items-center w-full lg:w-auto">

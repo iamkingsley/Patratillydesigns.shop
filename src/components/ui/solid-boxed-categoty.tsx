@@ -113,7 +113,7 @@ function SolidBoxedCategoryMenu({ items }: any) {
         }}
         breakpoints={breakpoints}
         slidesPerView={7}
-        spaceBetween={10}
+        spaceBetween={7}
       >
         {items?.map((category: any, idx: number) => (
           <SwiperSlide key={idx}>
