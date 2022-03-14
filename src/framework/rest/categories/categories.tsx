@@ -38,14 +38,12 @@ const Categories: React.FC<{ layout: string; className?: string }> = ({
     data,
     isLoading: loading,
     error,
-  // } = useCategoriesQuery({
-  } = useFeaturedCategoriesQuery({
+  } = useCategoriesQuery({
+  // } = useFeaturedCategoriesQuery({
     type: (query.pages?.[0] as string) ?? homePage?.slug,
     limit: 3,
     // parent: layout === 'minimal' ? 'all' : 'null',
   });
-  console.log('error', error)
-  console.log('data', data)
   if (error) return <ErrorMessage message={error.message} />;
   const Component = layout
     ? MAP_CATEGORY_TO_GROUP[layout]

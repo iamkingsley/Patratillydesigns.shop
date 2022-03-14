@@ -19,17 +19,17 @@ const CategoryItem = ({ item }: { item: Category }) => {
   const router = useRouter();
 
   const size = useWindowSize();
-  // let height = 250;
+  let height = 250; // mobile
 
-  // if (size.width >= 480 && size.width < 768) {
-  //   height = 320;
-  // } else if (size.width >= 768 && size.width < 976) {
-  //   height = 240;
-  // } else if (size.width >= 976 && size.width < 1440) {
-  //   height = 170;
-  // } else if (size.width >= 1440) {
-  //   height = 190;
-  // }
+  if (size.width >= 480 && size.width < 768) {
+    height = 320; // sm
+  } else if (size.width >= 768 && size.width < 976) {
+    height = 240; // md
+  } else if (size.width >= 976 && size.width < 1440) {
+    height = 170; // lg
+  } else if (size.width >= 1440) {
+    height = 190; // xl
+  }
   const { pathname, query } = router;
   const selectedQueries = query.category;
 
@@ -78,14 +78,24 @@ const CategoryItem = ({ item }: { item: Category }) => {
       </p>
       <p className="text-sm sm:text-md lg:text-md font-medium font-normal hover:underline" onClick={() => onCategoryClick(slug!)}>{details}</p>
     </div>
-    <div className='my-auto'>
+    <div className='my-auto'
+      // style={{
+      //   backgroundImage: `url(${image?.original})`,
+      //   backgroundRepeat: 'no-repeat',
+      //   width: '100%',
+      //   height: '100%',
+      //   backgroundSize: 'contain',
+      //   backgroundPosition: 'center',
+      //   backgroundClip: 'border-box',
+      // }}
+      >
       <Image
-        src={image ?? productPlaceholder}
+        src={image?.original ?? productPlaceholder}
         alt="image"
-        layout='intrinsic'
-        // width={height}
-        // height={height}
-        className="flex-shrink-0 w-[100%] h-[100%]"
+        // layout='fill'
+        width={height}
+        height={height}
+        // className="flex-shrink-0 w-[100%] h-[100%]"
         objectFit='contain'
       />
     </div>
