@@ -23,7 +23,7 @@ module.exports = {
         '-1': '-1',
       },
       fontFamily: {
-        'serif': ['serif'],
+        serif: ['serif'],
         body: ['Open Sans', 'system-ui', 'sans-serif'],
         heading: ['Open Sans', 'system-ui', 'sans-serif'],
       },
@@ -55,6 +55,7 @@ module.exports = {
         'gray-700': withOpacity('--color-gray-700'),
         'gray-800': withOpacity('--color-gray-800'),
         'gray-900': withOpacity('--color-gray-900'),
+        orange: '#ff7849',
         social: {
           facebook: '#3b5998',
           'facebook-hover': '#35508a',

@@ -1,6 +1,6 @@
 import { useRouter } from 'next/router';
 import ErrorMessage from '@components/ui/error-message';
-import { useCategoriesQuery } from '@framework/categories/categories.query';
+import { useCategoriesQuery, useFeaturedCategoriesQuery } from '@framework/categories/categories.query';
 import dynamic from 'next/dynamic';
 import useHomepage from '@framework/utils/use-homepage';
 const StickySidebarListCategories = dynamic(
@@ -16,11 +16,15 @@ const FilterCategoryGrid = dynamic(
   () => import('@components/categories/filter-category-grid')
 );
 
+const ThreeColumnCategories = dynamic(
+  () => import('@components/categories/three-column-categories')
+);
+
 const MAP_CATEGORY_TO_GROUP: Record<string, any> = {
   classic: StickySidebarListCategories,
   modern: StickySidebarBoxedCategories,
   standard: SlidingVerticalRectangleCategories,
-  minimal: FilterCategoryGrid,
+  minimal: ThreeColumnCategories, // FilterCategoryGrid,
   default: StickySidebarListCategories,
 };
 
@@ -35,11 +39,11 @@ const Categories: React.FC<{ layout: string; className?: string }> = ({
     isLoading: loading,
     error,
   } = useCategoriesQuery({
+  // } = useFeaturedCategoriesQuery({
     type: (query.pages?.[0] as string) ?? homePage?.slug,
-    limit: 1000,
-    parent: layout === 'minimal' ? 'all' : 'null',
+    limit: 3,
+    // parent: layout === 'minimal' ? 'all' : 'null',
   });
-
   if (error) return <ErrorMessage message={error.message} />;
   const Component = layout
     ? MAP_CATEGORY_TO_GROUP[layout]

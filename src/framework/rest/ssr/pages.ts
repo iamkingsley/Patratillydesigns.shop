@@ -1,5 +1,5 @@
 import { fetchSettings } from '@framework/app/settings.query';
-import { fetchCategories } from '@framework/categories/categories.query';
+import { fetchCategories, fetchFeaturedCategories } from '@framework/categories/categories.query';
 import { fetchGroups, fetchGroup } from '@framework/groups/groups.query';
 import { fetchFeaturedProducts, fetchProducts } from '@framework/products/products.query';
 import { API_ENDPOINTS } from '@framework/utils/endpoints';
@@ -60,6 +60,13 @@ export const getStaticProps: GetStaticProps = async ({ locale, params }) => {
       },
     ],
     fetchCategories,
+    {
+      staleTime: 60 * 1000,
+    }
+  );
+  await queryClient.prefetchQuery(
+    [API_ENDPOINTS.FEATURED_CATEGORIES, { limit: 100 }],
+    fetchFeaturedCategories,
     {
       staleTime: 60 * 1000,
     }
