@@ -38,8 +38,8 @@ const Categories: React.FC<{ layout: string; className?: string }> = ({
     data,
     isLoading: loading,
     error,
-  } = useCategoriesQuery({
-  // } = useFeaturedCategoriesQuery({
+  // } = useCategoriesQuery({
+  } = useFeaturedCategoriesQuery({
     type: (query.pages?.[0] as string) ?? homePage?.slug,
     limit: 3,
     // parent: layout === 'minimal' ? 'all' : 'null',
