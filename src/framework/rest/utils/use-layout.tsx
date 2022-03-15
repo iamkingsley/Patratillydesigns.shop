@@ -12,10 +12,9 @@ const useLayout = () => {
       page: homePage,
     };
   }
-  const page = data?.types.find((type) => router.asPath.includes(type.slug));
-  // const page = data?.types.find((type) => type?.settings?.isHome) ?? data?.types?.[0];
+  const page = data?.types.find((type) => type?.settings?.isHome) ?? data?.types?.[0];
   return {
-    layout: page?.settings?.layoutType,
+    layout: 'minimal', // page?.settings?.layoutType,
     page,
   };
 };
