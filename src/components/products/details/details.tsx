@@ -24,6 +24,7 @@ import { Waypoint } from 'react-waypoint';
 import { stickyShortDetailsAtom } from '@store/sticky-short-details-atom';
 import { useAttributes } from './attributes.context';
 import classNames from 'classnames';
+import WhatsApp from '@components/whatsapp/whatsapp';
 
 type Props = {
   product: Product;
@@ -252,6 +253,7 @@ const Details: React.FC<Props> = ({
               </button>
             </div>
           )}
+          <WhatsApp name={name} slug={slug}/>
         </div>
       </div>
 
