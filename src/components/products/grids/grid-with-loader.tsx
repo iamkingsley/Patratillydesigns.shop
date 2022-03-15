@@ -45,14 +45,14 @@ const GridWithLoader: React.FC<GridWithLoaderProps> = ({
   }
   return (
     <div
-      className={cn('flex-1 bg-gray-100 pb-8', {
+      className={cn('flex-1 bg-light-100 pb-8', {
         'px-0 lg:px-0': layout === 'shop' || layout === 'modern' || layout === 'standard',
         '!bg-transparent !p-0': layout === 'minimal',
       })}
     >
       <div
         // className={cn('grid grid-cols-2 sm:grid-cols-2 gap-3', {
-        className={cn('grid grid-cols-2 sm:grid-cols-2 gap-3', {
+        className={cn('grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-3', {
           [styles.standard]: layout === 'standard',
           [styles.shop]: layout === 'shop',
           [styles.minimal]: layout === 'minimal',
