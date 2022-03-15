@@ -63,7 +63,7 @@ const CategoryItem = ({ item }: { item: Category }) => {
   return (
     <div
     className={cn(
-      'flex justify-between items-stretch h-[250px] sm:h-[320px] md:h-[240px] lg:h-[160px] xl:h-[190px] 2xl:h-[230px] py-0 cursor-pointer overflow-hidden',
+      'flex justify-between items-stretch w-full h-[250px] sm:h-[320px] md:h-[240px] lg:h-[160px] xl:h-[190px] 2xl:h-[230px] py-0 cursor-pointer overflow-hidden',
       selectedQueries === slug
         ? 'border-gray-800'
         : 'border-border-100 xl:border-transparent',
@@ -73,10 +73,10 @@ const CategoryItem = ({ item }: { item: Category }) => {
     onClick={() => onCategoryClick(slug!)}
   >
     <div className="flex flex-col justify-center px-5 py-1 z-10">
-      <p className="text-2xl lg:3xl xl:text-4xl font-semibold hover:underline mb-2" onClick={() => onCategoryClick(slug!)}>
+      <p className="text-2xl lg:3xl xl:text-4xl font-semibold mb-2" onClick={() => onCategoryClick(slug!)}>
         {name}
       </p>
-      <p className="text-sm sm:text-md lg:text-md font-medium font-normal hover:underline" onClick={() => onCategoryClick(slug!)}>{details}</p>
+      <p className="text-sm sm:text-md lg:text-md font-medium font-normal" onClick={() => onCategoryClick(slug!)}>{details}</p>
     </div>
     <div className='my-auto'
       // style={{

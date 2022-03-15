@@ -1,4 +1,3 @@
-import Footer from '@components/footer/footer';
 import Banner from '@framework/app/banner';
 import Categories from '@framework/categories/categories';
 import Products from '@framework/products/products';
@@ -17,7 +16,6 @@ const Minimal = () => {
           <Products layout="standard" />
         </div>
       </main>
-      <Footer />
     </div>
   );
 };
