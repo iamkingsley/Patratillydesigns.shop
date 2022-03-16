@@ -60,9 +60,10 @@ const HeaderMinimal = () => {
             </span>
           </div>
 
-          {/* <ul className="ms-10 me-auto hidden lg:flex items-center flex-shrink-0 space-s-10"> */}
-            { /* shop & categories */ }
-          {/* </ul> */}
+          <ul className="ms-10 me-auto hidden pl-8 lg:flex justify-end items-center flex-shrink-0 space-s-8">
+           <StaticMenu />
+            { /* add shop & categories */ }
+          </ul>
         </div>
 
         {isHomePage ? (
