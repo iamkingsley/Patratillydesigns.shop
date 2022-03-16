@@ -1,4 +1,4 @@
-import Footer from '@components/footer/footer';
+import Footer from '@components/layouts/footer';
 import useLayout from '@framework/utils/use-layout';
 import Header from './header';
 import HeaderMinimal from './header-minimal';
