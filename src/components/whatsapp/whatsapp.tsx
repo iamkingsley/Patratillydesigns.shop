@@ -2,9 +2,8 @@ interface WhatsAppProps {
     name: string,
     slug: string
 }
-const WhatsApp: React.FC<WhatsAppProps> = ({name, slug}) => {
-    // const PageURL = 'http://localhost:3003/products/'+ slug
-    const PageURL = `${process.env.NEXT_PUBLIC_SITE_URL}${slug}`
+const WhatsApp: React.FC<WhatsAppProps> = ({ name, slug }) => {
+    const PageURL = `${process.env.NEXT_PUBLIC_SITE_URL}/products/${slug}`
     return(
         <>
           <a href={`https://wa.me/233244210231?text=Hello,%20I'm%20interested%20in%20this%20product;%20could%20you%20please%20assist%20me?Page%20Url:%20${PageURL}%20Page%20Title:%20${name}`}>

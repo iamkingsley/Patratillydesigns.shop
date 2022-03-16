@@ -1,4 +1,19 @@
+import { ROUTES } from "@lib/routes";
+import { useTranslation } from "next-i18next";
+import Link from "next/link";
+
 const Footer = () => {
+  const { t } = useTranslation('common');
+
+  const headerLinks = [
+    { href: ROUTES.HOME, label: 'text-shop' },
+    // { href: ROUTES.SHOPS, icon: null, label: 'nav-menu-shops' },
+    // { href: ROUTES.OFFERS, label: 'nav-menu-offer' },
+    // { href: ROUTES.PRIVACY, label: 'policy-main-title' },
+    { href: ROUTES.HELP, label: 'nav-menu-faq' },
+    { href: ROUTES.ABOUT, label: 'nav-menu-about' },
+    { href: ROUTES.CONTACT, label: 'nav-menu-contact' },
+  ];
   return (
     <>
       <footer className="text-center lg:text-left text-gray-600">
@@ -26,26 +41,13 @@ const Footer = () => {
               <h6 className="uppercase font-semibold mb-4 flex justify-center md:justify-start">
                 Useful links
               </h6>
-              <p className="mb-4">
-                <a href="#!" className="text-gray-600">
-                  Payment
-                </a>
-              </p>
-              <p className="mb-4">
-                <a href="#!" className="text-gray-600">
-                  About
-                </a>
-              </p>
-              <p className="mb-4">
-                <a href="#!" className="text-gray-600">
-                  Contact
-                </a>
-              </p>
-              <p className="mb-4">
-                <a href="#!" className="text-gray-600">
-                  Help
-                </a>
-              </p>
+              {headerLinks.map(({ href, label }) => (
+                <p className="mb-4" key={`${href}${label}`}>
+                  <Link href={href} >
+                    {t(label)}
+                  </Link>
+                </p>
+              ))}
             </div>
             <div className="mx-auto">
               <h6 className="uppercase font-semibold mb-4 flex justify-center md:justify-start">

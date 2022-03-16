@@ -1,5 +1,5 @@
+import Link from 'next/link';
 import cn from 'classnames';
-import { motion } from 'framer-motion';
 import Logo from '@components/ui/logo';
 // import GroupsDropdownMenu from '@framework/groups/dropdown-menu';
 import StaticMenu from './menu/static-menu';
@@ -13,6 +13,7 @@ import { useIsHomePage } from '@lib/use-is-homepage';
 import { useEffect } from 'react';
 import SearchWithSuggestion from '@components/ui/search/search-with-suggestion';
 import { SearchIcon } from '@components/icons/search-icon';
+import { ROUTES } from '@lib/routes';
 
 const Search = dynamic(() => import('@components/ui/search/search'));
 const CartCounterIconButton = dynamic(
@@ -50,11 +51,18 @@ const HeaderMinimal = () => {
         )}
       >
         <div className="flex items-center w-full lg:w-auto">
-          <Logo className="mx-auto lg:mx-0" />
+          <div className='flex justify-center items-center mx-auto lg:mx-0'>
+            <Logo />
+            <span className="font-bold text-xl font-serif transition duration-200 no-underline uppercase">
+              <Link href={ROUTES.HOME} >
+                PATRA TILLY DESIGNS
+              </Link>
+            </span>
+          </div>
 
-          <ul className="ms-10 me-auto hidden lg:flex items-center flex-shrink-0 space-s-10">
-            <StaticMenu />
-          </ul>
+          {/* <ul className="ms-10 me-auto hidden lg:flex items-center flex-shrink-0 space-s-10"> */}
+            { /* shop & categories */ }
+          {/* </ul> */}
         </div>
 
         {isHomePage ? (

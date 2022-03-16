@@ -17,19 +17,11 @@ const StaticMenu = () => {
 
   return (
     <>
-      <li>
-        <Link
-          href={ROUTES.HOME}
-          className="font-bold text-xl font-serif transition duration-200 no-underline"
-        >
-          PATRA TILLY DESIGNS
-        </Link>
-      </li>
       {headerLinks.map(({ href, label, icon }, i) => (
         <li key={`${href}${label}`}>
           <Link
             href={href}
-            className="font-semibold flex items-center transition duration-200 no-underline hover:text-accent focus:text-accent"
+            className="font-semibold flex items-center transition duration-200 no-underline hover:text-muted focus:text-muted"
           >
             {icon && <span className="me-2">{icon}</span>}
             {t(label)}
