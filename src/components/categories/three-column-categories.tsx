@@ -63,7 +63,7 @@ const CategoryItem = ({ item }: { item: Category }) => {
   return (
     <div
     className={cn(
-      'flex justify-between items-stretch w-full h-[250px] sm:h-[320px] md:h-[240px] lg:h-[160px] xl:h-[190px] 2xl:h-[230px] py-0 cursor-pointer overflow-hidden',
+      'flex justify-between items-stretch w-full h-[250px] sm:h-[320px] md:h-[240px] lg:h-[160px] xl:h-[190px] 2xl:h-[230px] py-0 cursor-pointer overflow-hidden hover:-translate-y-0.5',
       selectedQueries === slug
         ? 'border-gray-800'
         : 'border-border-100 xl:border-transparent',
@@ -119,7 +119,7 @@ const CategoryList: React.FC<CategoryGridProps> = ({ categories, loading, notFou
     );
   }
   return (
-    <div className="w-full bg-gray-100">
+    <div className="w-full">
       {!notFound ? (
         <div className="flex flex-col justify-between w-full mx-auto h-[auto] space-y-3 md:space-y-0 md:space-x-3 xl:space-x-5 md:flex-row my-8">
         {categories.map((item, i) => (

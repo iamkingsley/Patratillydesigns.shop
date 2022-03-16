@@ -40,7 +40,7 @@ const Xenon: React.FC<XenonProps> = ({ product, className }) => {
       )}
     >
       <div
-        className="relative flex items-center justify-center cursor-pointer h-48 sm:h-80 md:h-100"
+        className="relative flex items-center justify-center cursor-pointer h-48 sm:h-80 md:h-100 bg-gray-100"
         onClick={handleProductQuickView}
       >
         <span className="sr-only">{t('text-product-image')}</span>
