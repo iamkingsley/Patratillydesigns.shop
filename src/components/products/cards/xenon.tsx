@@ -6,6 +6,7 @@ import { useTranslation } from 'next-i18next';
 import { PlusIcon } from '@components/icons/plus-icon';
 import { useModalAction } from '@components/ui/modal/modal.context';
 import { productPlaceholder } from '@lib/placeholders';
+import React from 'react';
 
 type XenonProps = {
   product: any;
@@ -13,9 +14,11 @@ type XenonProps = {
 };
 
 const Xenon: React.FC<XenonProps> = ({ product, className }) => {
+  const { name, image, gallery, quantity, min_price, max_price, product_type } = product ?? {};
+
+  const [photo, setPhoto] = React.useState(image)
+
   const { t } = useTranslation('common');
-  const { name, image, quantity, min_price, max_price, product_type } =
-    product ?? {};
   const { price, basePrice, discount } = usePrice({
     amount: product.sale_price ? product.sale_price : product.price!,
     baseAmount: product.price,
@@ -34,6 +37,8 @@ const Xenon: React.FC<XenonProps> = ({ product, className }) => {
 
   return (
     <article
+      onMouseEnter={() => setPhoto(gallery?.length ? gallery[0] : image)}
+      onMouseLeave={() => setPhoto(image)}
       className={cn(
         'product-card cart-type-xenon h-full overflow-hidden transform transition-all duration-200 hover:shadow hover:border-transparent hover:-translate-y-0.5',
         className
@@ -45,7 +50,7 @@ const Xenon: React.FC<XenonProps> = ({ product, className }) => {
       >
         <span className="sr-only">{t('text-product-image')}</span>
         <Image
-          src={image?.original ?? productPlaceholder}
+          src={photo?.original ?? productPlaceholder}
           alt={name}
           layout="fill"
           objectFit="contain"
