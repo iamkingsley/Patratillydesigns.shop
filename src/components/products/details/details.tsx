@@ -114,12 +114,12 @@ const Details: React.FC<Props> = ({
             {!!gallery?.length ? (
               <ThumbsCarousel gallery={gallery} />
             ) : (
-              <div className="w-full h-full flex items-center justify-center">
+              <div className="w-full h-full flex items-center justify-center bg-gray-100">
                 <Image
                   src={image?.original ?? productPlaceholder}
                   alt={name}
-                  width={450}
-                  height={450}
+                  width={250}
+                  height={350}
                 />
               </div>
             )}
@@ -253,7 +253,7 @@ const Details: React.FC<Props> = ({
               </button>
             </div>
           )}
-          <WhatsApp name={name} slug={slug}/>
+          <WhatsApp name={name} slug={slug} className="text-center" />
         </div>
       </div>
 

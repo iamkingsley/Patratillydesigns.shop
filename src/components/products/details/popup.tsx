@@ -3,8 +3,8 @@ import dynamic from 'next/dynamic';
 import { useTranslation } from 'next-i18next';
 import { Product } from '@framework/types';
 import Details from './details';
-import ShortDetails from './short-details';
-import { stickyShortDetailsAtom } from '@store/sticky-short-details-atom';
+// import ShortDetails from './short-details';
+// import { stickyShortDetailsAtom } from '@store/sticky-short-details-atom';
 import { useAtom } from 'jotai';
 import { AttributesProvider } from './attributes.context';
 
@@ -15,7 +15,7 @@ interface ProductPopupProps {
 }
 const Popup: React.FC<ProductPopupProps> = ({ product, loading }) => {
   const { t } = useTranslation('common');
-  const [showStickyShortDetails] = useAtom(stickyShortDetailsAtom);
+  // const [showStickyShortDetails] = useAtom(stickyShortDetailsAtom);
 
   const { id, related_products } = product ?? {};
 
@@ -30,7 +30,7 @@ const Popup: React.FC<ProductPopupProps> = ({ product, loading }) => {
     <AttributesProvider>
       <article className="bg-light w-full max-w-6xl xl:min-w-[1152px] relative z-[51] md:rounded-xl">
         {/* Sticky bar */}
-        <ShortDetails product={product} isSticky={showStickyShortDetails} />
+        {/* <ShortDetails product={product} isSticky={showStickyShortDetails} /> */}
         {/* End of sticky bar */}
         <Details product={product} backBtn={false} isModal={true} />
 
