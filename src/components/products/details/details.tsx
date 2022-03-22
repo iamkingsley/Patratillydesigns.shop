@@ -32,10 +32,11 @@ type Props = {
   isModal?: boolean;
 };
 const Details: React.FC<Props> = ({
-  product,
+  product: _product,
   backBtn = true,
   isModal = false,
 }) => {
+  const product = _product?._doc;
   const {
     name,
     image, //could only had image we need to think it also
@@ -47,7 +48,14 @@ const Details: React.FC<Props> = ({
     quantity,
     shop,
     slug,
-  } = product?._doc ?? {};
+    price: _price,
+    sale_price,
+    min_price,
+    max_price,
+    variations: _variations,
+    variation_options,
+  } = product ?? {};
+  
   const { t } = useTranslation('common');
   const [_, setShowStickyShortDetails] = useAtom(stickyShortDetailsAtom);
 
@@ -57,8 +65,8 @@ const Details: React.FC<Props> = ({
   const { attributes } = useAttributes();
 
   const { price, basePrice, discount } = usePrice({
-    amount: product?.sale_price ? product?.sale_price : product?.price!,
-    baseAmount: product?.price,
+    amount: sale_price ? sale_price : product.price!,
+    baseAmount: product.price,
   });
 
   const navigate = (path: string) => {
@@ -67,13 +75,13 @@ const Details: React.FC<Props> = ({
   };
 
   const variations = useMemo(
-    () => getVariations(product?.variations),
-    [product?.variations]
+    () => getVariations(_variations),
+    [_variations]
   );
   const isSelected = isVariationSelected(variations, attributes);
   let selectedVariation: any = {};
   if (isSelected) {
-    selectedVariation = product?.variation_options?.find((o: any) =>
+    selectedVariation = variation_options?.find((o: any) =>
       isEqual(
         o.options.map((v: any) => v.value).sort(),
         Object.values(attributes).sort()
@@ -173,8 +181,8 @@ const Details: React.FC<Props> = ({
                   <div className="my-5 md:my-10 flex items-center">
                     <VariationPrice
                       selectedVariation={selectedVariation}
-                      minPrice={product.min_price}
-                      maxPrice={product.max_price}
+                      minPrice={min_price}
+                      maxPrice={max_price}
                     />
                   </div>
                   <div>

@@ -17,10 +17,10 @@ const VariationGroups: React.FC<Props> = ({ variations }) => {
             {variationName}:
           </span>
           <div className="w-full flex space-s-4 overflow-x-auto">
-            {variations[variationName].map((attribute: any) => (
+            {variations[variationName].map((attribute: any, i) => (
               <Attribute
                 className={variationName}
-                color={attribute.meta ? attribute.meta : attribute?.value}
+                color={attribute.value.meta ? attribute.value.meta : attribute?.value}
                 active={attributes[variationName] === attribute.value}
                 value={attribute.value}
                 key={attribute.id}
