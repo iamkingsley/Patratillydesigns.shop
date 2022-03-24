@@ -6,7 +6,7 @@ import {
   Marker
 } from "react-google-maps";
 
-const defaultCenter = { lat: 5.564524666302273, lng: -0.1796627085839316 };
+const defaultCenter = { lat: 7.146060, lng: 0.465820 };
 
 const defaultOptions = { scrollwheel: false };
 
