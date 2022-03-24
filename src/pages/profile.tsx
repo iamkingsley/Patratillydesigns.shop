@@ -6,6 +6,7 @@ import { getLayout as getSiteLayout } from '@components/layouts/layout';
 import ProfileInformation from '@framework/profile/profile-information';
 import useUser from '@framework/auth/use-user';
 import ProfileContact from '@components/profile/profile-contact';
+import ContactGrid from '@components/checkout/contact/contact-grid';
 export { getStaticProps } from '@framework/ssr/common';
 
 const ProfilePage = () => {
@@ -16,10 +17,17 @@ const ProfilePage = () => {
     <div className="w-full overflow-hidden px-1 pb-1">
       <div className="mb-8">
         <ProfileInformation />
-        <ProfileContact
+        {/* <ProfileContact
           userId={me?.id!}
           profileId={me?.profile?.id!}
           contact={me?.profile?.contact!}
+        /> */}
+        <ContactGrid
+          className="shadow-700 bg-light p-5 md:p-8"
+          //@ts-ignore
+          contact={me?.profile?.contact}
+          label={t('text-contact-number')}
+          count={1}
         />
       </div>
 
