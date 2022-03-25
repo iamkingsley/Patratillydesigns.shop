@@ -80,7 +80,7 @@ const Helium: React.FC<HeliumProps> = ({ product, className }) => {
         {/* End of product info */}
 
         <div className="flex items-center justify-between min-h-6 mt-7 md:mt-8 relative">
-          {product_type.toLowerCase() === 'variable' ? (
+          {product_type?.toLowerCase() === 'variable' ? (
             <>
               <div>
                 <span className="text-accent text-sm md:text-[15px] font-semibold">

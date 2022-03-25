@@ -20,8 +20,8 @@ const Xenon: React.FC<XenonProps> = ({ product, className }) => {
 
   const { t } = useTranslation('common');
   const { price, basePrice, discount } = usePrice({
-    amount: product.sale_price ? product.sale_price : product.price!,
-    baseAmount: product.price,
+    amount: product?.sale_price ? product?.sale_price : product?.price!,
+    baseAmount: product?.price,
   });
   const { price: minPrice } = usePrice({
     amount: min_price,
@@ -75,7 +75,7 @@ const Xenon: React.FC<XenonProps> = ({ product, className }) => {
 
         {/* End of price */}
         <div className="flex items-center justify-between mt-2">
-          {product_type.toLowerCase() === 'variable' ? (
+          {product_type?.toLowerCase() === 'variable' ? (
             <>
               <div>
                 <span className="text-sm md:text-base text-heading font-semibold">
