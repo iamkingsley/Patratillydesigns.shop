@@ -17,7 +17,7 @@ export const ContactPage = () => {
   return (
     <div className="w-full bg-gray-100">
       <div>
-      <Location />
+        <Location />
       </div>
       <div className="flex flex-col md:flex-row max-w-7xl w-full mx-auto py-10 px-5 xl:py-14 xl:px-8 2xl:px-14">
         {/* sidebar */}
@@ -35,8 +35,8 @@ export const ContactPage = () => {
               {t('text-address')}
             </span>
             <span className="text-sm text-body">
-              {!isEmpty(formatAddress(settings?.contactDetails?.location))
-                ? formatAddress(settings?.contactDetails?.location)
+              {settings?.contactDetails?.location
+                ? settings?.contactDetails?.location
                 : t('common:text-no-address')}
             </span>
           </div>

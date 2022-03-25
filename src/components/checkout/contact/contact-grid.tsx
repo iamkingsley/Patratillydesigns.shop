@@ -5,6 +5,10 @@ import { useModalAction } from '@components/ui/modal/modal.context';
 import ContactCard from '@components/ui/contact-card';
 import { PlusIcon } from '@components/icons/plus-icon';
 import { useTranslation } from 'next-i18next';
+import Input from '@components/ui/forms/input';
+import { useUpdateCustomerMutation } from '@framework/customer/customer.query';
+import useUser from '@framework/auth/use-user';
+import { toast } from 'react-toastify';
 
 interface ContactProps {
   contact: string | undefined;
@@ -17,6 +21,8 @@ const ContactGrid = ({ contact, label, count, className }: ContactProps) => {
   const [contactNumber, setContactNumber] = useAtom(customerContactAtom);
   const { openModal } = useModalAction();
   const { t } = useTranslation('common');
+  const { me } = useUser();
+  const { mutate: updateProfile } = useUpdateCustomerMutation();
 
   useEffect(() => {
     if (contact) {
@@ -26,6 +32,30 @@ const ContactGrid = ({ contact, label, count, className }: ContactProps) => {
 
   function onAddOrChange() {
     openModal('ADD_OR_UPDATE_CHECKOUT_CONTACT');
+  }
+
+  // remove when OTP is ready
+  function onContactUpdate() {
+    if (!me) {
+      return false;
+    }
+    updateProfile(
+      {
+        id: me.id,
+        profile: {
+          ...me.profile,
+          contact: contactNumber,
+        },
+      },
+      {
+        onSuccess: () => {
+          toast.success(t('profile-update-successful'));
+        },
+        onError: (err) => {
+          toast.error(t('error-something-wrong'));
+        },
+      }
+    );
   }
   return (
     <div className={className}>
@@ -41,7 +71,8 @@ const ContactGrid = ({ contact, label, count, className }: ContactProps) => {
 
         <button
           className="flex items-center text-sm font-semibold text-accent transition-colors duration-200 focus:outline-none focus:text-accent-hover hover:text-accent-hover"
-          onClick={onAddOrChange}
+          // onClick={onAddOrChange}
+          onClick={onContactUpdate}
         >
           <PlusIcon className="w-4 h-4 stroke-2 me-0.5" />
           {contactNumber ? t('text-update') : t('text-add')}
@@ -49,9 +80,14 @@ const ContactGrid = ({ contact, label, count, className }: ContactProps) => {
       </div>
 
       <div className="grid gap-4 grid-cols-1 sm:grid-cols-2 md:grid-cols-3">
-        <ContactCard
+        {/* <ContactCard
           checked={Boolean(contactNumber)}
           number={Boolean(contactNumber) ? contactNumber : t('text-no-contact')}
+        /> */}
+        <Input type="text"
+          name="contactNumber"
+          value={contactNumber}
+          onChange={(e) => setContactNumber(e.target.value)}
         />
       </div>
     </div>
