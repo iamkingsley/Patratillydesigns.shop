@@ -48,12 +48,7 @@ const Details: React.FC<Props> = ({
     quantity,
     shop,
     slug,
-    price: _price,
     sale_price,
-    min_price,
-    max_price,
-    variations: _variations,
-    variation_options,
   } = product ?? {};
   
   const { t } = useTranslation('common');
@@ -75,15 +70,15 @@ const Details: React.FC<Props> = ({
   };
 
   const variations = useMemo(
-    () => getVariations(_variations),
-    [_variations]
+    () => getVariations(product.variations),
+    [product.variations]
   );
   const isSelected = isVariationSelected(variations, attributes);
   let selectedVariation: any = {};
   if (isSelected) {
-    selectedVariation = variation_options?.find((o: any) =>
+    selectedVariation = product.variation_options?.find((o: any) =>
       isEqual(
-        o.options.map((v: any) => v.value).sort(),
+        o.options.map((v: any) => v).sort(),
         Object.values(attributes).sort()
       )
     );
@@ -156,11 +151,11 @@ const Details: React.FC<Props> = ({
                 {name}
               </h1>
 
-              {unit && !hasVariations && (
+              {/* {unit && !hasVariations && (
                 <span className="text-sm font-normal text-body mt-2 md:mt-3 block">
                   {unit}
                 </span>
-              )}
+              )} */}
 
               {description && (
                 <div className="mt-3 md:mt-4 text-body text-sm leading-7">
@@ -181,8 +176,8 @@ const Details: React.FC<Props> = ({
                   <div className="my-5 md:my-10 flex items-center">
                     <VariationPrice
                       selectedVariation={selectedVariation}
-                      minPrice={min_price}
-                      maxPrice={max_price}
+                      minPrice={product.min_price}
+                      maxPrice={product.max_price}
                     />
                   </div>
                   <div>
@@ -239,13 +234,13 @@ const Details: React.FC<Props> = ({
             </div>
           </Waypoint>
 
-          {!!categories?.length && (
+          {/* {!!categories?.length && (
             <CategoryBadges
               categories={categories}
               basePath={`/${type?.slug}`}
               onClose={closeModal}
             />
-          )}
+          )} */}
 
           {shop?.name && (
             <div className="flex items-center mt-2">

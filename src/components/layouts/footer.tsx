@@ -21,7 +21,7 @@ const Footer = () => {
   return (
     <>
       <footer className="text-center lg:text-left text-gray-600">
-        <div className="w-full p-6 text-center md:text-left bg-gray-100 text-gray-600 border-b border-gray-300">
+        <div className="w-full p-6 text-center md:text-left bg-gray-200 text-gray-600 border-b border-gray-300">
           <div className="grid grid-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             <div className="">
               <h6 className="
