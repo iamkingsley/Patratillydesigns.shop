@@ -23,7 +23,8 @@ module.exports = {
         '-1': '-1',
       },
       fontFamily: {
-        serif: ['serif'],
+        lato: ['sans-serif', 'lato'],
+        brush: ['Brush Script MT'],
         body: ['Open Sans', 'system-ui', 'sans-serif'],
         heading: ['Open Sans', 'system-ui', 'sans-serif'],
       },

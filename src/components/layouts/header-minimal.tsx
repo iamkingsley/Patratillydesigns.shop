@@ -53,9 +53,9 @@ const HeaderMinimal = () => {
         <div className="flex items-center w-full lg:w-auto">
           <div className='flex justify-center items-center mx-auto lg:mx-0'>
             <Logo />
-            <span className="font-bold text-xl font-serif transition duration-200 no-underline uppercase">
+            <span className="font-bold text-xl 2xl:text-2xl font-brush transition duration-200 no-underline">
               <Link href={ROUTES.HOME} >
-                PATRA TILLY DESIGNS
+                PatraTilly Designs
               </Link>
             </span>
           </div>

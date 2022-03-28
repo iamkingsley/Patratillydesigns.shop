@@ -73,23 +73,25 @@ const CategoryItem = ({ item }: { item: Category }) => {
     onClick={() => onCategoryClick(slug!)}
   >
     <div className="flex flex-col justify-center px-5 py-1 z-10">
-      <p className="text-2xl lg:3xl xl:text-4xl font-semibold mb-2" onClick={() => onCategoryClick(slug!)}>
+      <p className="text-2xl lg:3xl xl:text-4xl font-semibold font-lato mb-2" onClick={() => onCategoryClick(slug!)}>
         {name}
       </p>
-      <p className="text-sm sm:text-md lg:text-md font-medium font-normal" onClick={() => onCategoryClick(slug!)}>{details}</p>
+      <p className="text-sm sm:text-md lg:text-md font-semibold font-lato"
+        onClick={() => onCategoryClick(slug!)}
+      >{details}</p>
     </div>
     <div className='my-auto'
-      // style={{
-      //   backgroundImage: `url(${image?.original})`,
-      //   backgroundRepeat: 'no-repeat',
-      //   width: '100%',
-      //   height: '100%',
-      //   backgroundSize: 'contain',
-      //   backgroundPosition: 'center',
-      //   backgroundClip: 'border-box',
-      // }}
+      style={{
+        backgroundImage: `url(${image?.original})`,
+        backgroundRepeat: 'no-repeat',
+        width: '100%',
+        height: '100%',
+        backgroundSize: 'contain',
+        backgroundPosition: 'right',
+        backgroundClip: 'border-box',
+      }}
       >
-      <Image
+      {/* <Image
         src={image?.original ?? productPlaceholder}
         alt="image"
         // layout='fill'
@@ -97,7 +99,7 @@ const CategoryItem = ({ item }: { item: Category }) => {
         height={height}
         // className="flex-shrink-0 w-[100%] h-[100%]"
         objectFit='contain'
-      />
+      /> */}
     </div>
   </div>
   )
