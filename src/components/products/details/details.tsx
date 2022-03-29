@@ -25,6 +25,7 @@ import { stickyShortDetailsAtom } from '@store/sticky-short-details-atom';
 import { useAttributes } from './attributes.context';
 import classNames from 'classnames';
 import WhatsApp from '@components/whatsapp/whatsapp';
+import { useWindowSize } from '@lib/use-window-size';
 
 type Props = {
   product: Product;
@@ -58,6 +59,8 @@ const Details: React.FC<Props> = ({
   const { closeModal } = useModalAction();
 
   const { attributes } = useAttributes();
+
+  const size = useWindowSize()
 
   const { price, basePrice, discount } = usePrice({
     amount: sale_price ? sale_price : product.price!,
@@ -122,7 +125,7 @@ const Details: React.FC<Props> = ({
                   backgroundImage: `url(${image?.original ?? productPlaceholder})`,
                   backgroundRepeat: 'no-repeat',
                   width: '100%',
-                  height: '100%',
+                  height: size.width < 767 ? 500 : '100%',
                   backgroundSize: 'contain',
                   backgroundPosition: 'top',
                   backgroundClip: 'border-box',
