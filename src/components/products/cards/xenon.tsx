@@ -53,7 +53,7 @@ const Xenon: React.FC<XenonProps> = ({ product, className }) => {
           width: '100%',
           // height: '100%',
           backgroundSize: 'cover',
-          backgroundPosition: 'center',
+          backgroundPosition: 'top',
           backgroundClip: 'border-box',
         }}
       >
