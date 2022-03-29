@@ -17,7 +17,7 @@ interface VerifiedResponse {
 interface CheckoutState {
   billing_address: Address | null;
   shipping_address: Address | null;
-  payment_gateway: PaymentMethodName;
+  payment_gateway: string;
   delivery_time: DeliveryTime | null;
   customer_contact: string;
   customer: User | null,
@@ -31,7 +31,7 @@ export const defaultCheckout: CheckoutState = {
   billing_address: null,
   shipping_address: null,
   delivery_time: null,
-  payment_gateway: 'STRIPE',
+  payment_gateway: 'Cash On Delivery',
   customer_contact: '',
   customer: null,
   verified_response: null,

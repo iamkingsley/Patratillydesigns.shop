@@ -103,7 +103,7 @@ const VerifiedItemList: React.FC<Props> = ({ className }) => {
         <ItemInfoRow title={t('text-sub-total')} value={sub_total} />
         <ItemInfoRow title={t('text-tax')} value={tax} />
         <ItemInfoRow title={t('text-shipping')} value={shipping} />
-        {discount && coupon ? (
+        {/* {discount && coupon ? (
           <div className="flex justify-between">
             <p className="text-sm text-body me-4">{t('text-discount')}</p>
             <span className="text-xs font-semibold text-red-500 flex items-center me-auto">
@@ -118,7 +118,7 @@ const VerifiedItemList: React.FC<Props> = ({ className }) => {
           <div className="flex justify-between mt-5 !mb-4">
             <Coupon />
           </div>
-        )}
+        )} */}
         <div className="flex justify-between border-t-4 border-double border-border-200 pt-3">
           <p className="text-base font-semibold text-heading">
             {t('text-total')}
@@ -126,13 +126,13 @@ const VerifiedItemList: React.FC<Props> = ({ className }) => {
           <span className="text-base font-semibold text-heading">{total}</span>
         </div>
       </div>
-      {verifiedResponse && (
+      {/* {verifiedResponse && (
         <Wallet
           totalPrice={totalPrice}
           walletAmount={verifiedResponse.wallet_amount}
           walletCurrency={verifiedResponse.wallet_currency}
         />
-      )}
+      )} */}
       {use_wallet && !Boolean(payableAmount) ? null : (
         <PaymentGrid className="bg-light p-5 border border-gray-200 mt-10" />
       )}
