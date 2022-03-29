@@ -5,7 +5,6 @@ import CategoriesLoader from '@components/ui/loaders/categories-loader';
 import NotFound from '@components/ui/not-found';
 import { productPlaceholder } from '@lib/placeholders';
 import { useRouter } from 'next/router';
-import { useWindowSize } from 'react-use';
 
 interface CategoryGridProps {
     notFound: boolean;
@@ -16,20 +15,8 @@ interface CategoryGridProps {
 
 const CategoryItem = ({ item }: { item: Category }) => {
   const { name, details, slug, image, bg } = item;
+  
   const router = useRouter();
-
-  const size = useWindowSize();
-  let height = 250; // mobile
-
-  if (size.width >= 480 && size.width < 768) {
-    height = 320; // sm
-  } else if (size.width >= 768 && size.width < 976) {
-    height = 240; // md
-  } else if (size.width >= 976 && size.width < 1440) {
-    height = 170; // lg
-  } else if (size.width >= 1440) {
-    height = 190; // xl
-  }
   const { pathname, query } = router;
   const selectedQueries = query.category;
 
@@ -73,31 +60,24 @@ const CategoryItem = ({ item }: { item: Category }) => {
     onClick={() => onCategoryClick(slug!)}
   >
     <div className="flex flex-col justify-center px-5 py-1 z-10">
-      <p className="text-2xl lg:3xl xl:text-4xl font-semibold mb-2" onClick={() => onCategoryClick(slug!)}>
+      <p className="text-2xl lg:3xl font-semibold font-heading mb-2" onClick={() => onCategoryClick(slug!)}>
         {name}
       </p>
-      <p className="text-sm sm:text-md lg:text-md font-medium font-normal" onClick={() => onCategoryClick(slug!)}>{details}</p>
+      <p className="text-xs lg:text-sm font-semibold text-gray-700 font-body"
+        onClick={() => onCategoryClick(slug!)}
+      >{details}</p>
     </div>
-    <div className='my-auto'
-      // style={{
-      //   backgroundImage: `url(${image?.original})`,
-      //   backgroundRepeat: 'no-repeat',
-      //   width: '100%',
-      //   height: '100%',
-      //   backgroundSize: 'contain',
-      //   backgroundPosition: 'center',
-      //   backgroundClip: 'border-box',
-      // }}
+    <div className='h-full'
+      style={{
+        backgroundImage: `url(${image?.original})`,
+        backgroundRepeat: 'no-repeat',
+        width: '100%',
+        height: '100%',
+        backgroundSize: 'cover',
+        backgroundPosition: 'left top',
+        backgroundClip: 'border-box',
+      }}
       >
-      <Image
-        src={image?.original ?? productPlaceholder}
-        alt="image"
-        // layout='fill'
-        width={height}
-        height={height}
-        // className="flex-shrink-0 w-[100%] h-[100%]"
-        objectFit='contain'
-      />
     </div>
   </div>
   )
