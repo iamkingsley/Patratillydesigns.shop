@@ -47,15 +47,24 @@ const Xenon: React.FC<XenonProps> = ({ product, className }) => {
       <div
         className="relative flex items-center justify-center cursor-pointer h-48 sm:h-80 md:h-100 bg-gray-100"
         onClick={handleProductQuickView}
+        style={{
+          backgroundImage: `url(${photo?.original ?? productPlaceholder})`,
+          backgroundRepeat: 'no-repeat',
+          width: '100%',
+          // height: '100%',
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundClip: 'border-box',
+        }}
       >
         <span className="sr-only">{t('text-product-image')}</span>
-        <Image
+        {/* <Image
           src={photo?.original ?? productPlaceholder}
           alt={name}
           layout="fill"
           objectFit="contain"
           className="product-image"
-        />
+        /> */}
         {discount && (
           <div className="absolute top-3 start-3 md:top-4 md:start-4 rounded text-xs leading-6 font-semibold px-1.5  md:px-2 lg:px-2.5 bg-accent text-light">
             {discount}

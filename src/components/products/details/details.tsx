@@ -122,7 +122,7 @@ const Details: React.FC<Props> = ({
                   backgroundImage: `url(${image?.original ?? productPlaceholder})`,
                   backgroundRepeat: 'no-repeat',
                   width: '100%',
-                  height: 600,
+                  height: '100%',
                   backgroundSize: 'contain',
                   backgroundPosition: 'top',
                   backgroundClip: 'border-box',
