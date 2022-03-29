@@ -35,7 +35,7 @@ const Login = () => {
             return;
           }
           if (!data.token) {
-            setErrorMessage(t('error-credential-wrong'));
+            setErrorMessage(data?.message);
           }
         },
         onError: (error: any) => {
