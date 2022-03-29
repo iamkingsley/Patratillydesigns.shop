@@ -124,7 +124,7 @@ const Details: React.FC<Props> = ({
                   width: '100%',
                   height: 600,
                   backgroundSize: 'contain',
-                  backgroundPosition: 'center',
+                  backgroundPosition: 'top',
                   backgroundClip: 'border-box',
                 }}
                 >
