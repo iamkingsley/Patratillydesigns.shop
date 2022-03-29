@@ -60,10 +60,10 @@ const CategoryItem = ({ item }: { item: Category }) => {
     onClick={() => onCategoryClick(slug!)}
   >
     <div className="flex flex-col justify-center px-5 py-1 z-10">
-      <p className="text-2xl lg:3xl xl:text-4xl font-semibold font-lato mb-2" onClick={() => onCategoryClick(slug!)}>
+      <p className="text-2xl lg:3xl font-semibold font-heading mb-2" onClick={() => onCategoryClick(slug!)}>
         {name}
       </p>
-      <p className="text-sm sm:text-md lg:text-md font-semibold font-lato"
+      <p className="text-xs lg:text-sm font-semibold text-gray-700 font-body"
         onClick={() => onCategoryClick(slug!)}
       >{details}</p>
     </div>
@@ -74,7 +74,7 @@ const CategoryItem = ({ item }: { item: Category }) => {
         width: '100%',
         height: '100%',
         backgroundSize: 'cover',
-        backgroundPosition: 'right',
+        backgroundPosition: 'left top',
         backgroundClip: 'border-box',
       }}
       >

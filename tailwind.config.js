@@ -23,10 +23,9 @@ module.exports = {
         '-1': '-1',
       },
       fontFamily: {
-        lato: ['sans-serif', 'lato'],
         brush: ['Brush Script MT'],
-        body: ['Open Sans', 'system-ui', 'sans-serif'],
-        heading: ['Open Sans', 'system-ui', 'sans-serif'],
+        body: ['lato', 'sans-serif'],
+        heading: ['lato','sans-serif'],
       },
       fontSize: {
         '10px': '0.625rem',
