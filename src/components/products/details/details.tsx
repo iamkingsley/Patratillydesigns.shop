@@ -117,7 +117,7 @@ const Details: React.FC<Props> = ({
             {!!gallery?.length ? (
               <ThumbsCarousel gallery={gallery} />
             ) : (
-              <div className="w-full h-full flex items-center justify-center bg-gray-light"
+              <div className="w-full h-full flex items-center justify-center bg-light"
                 style={{
                   backgroundImage: `url(${image?.original ?? productPlaceholder})`,
                   backgroundRepeat: 'no-repeat',

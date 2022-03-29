@@ -50,7 +50,7 @@ const CategoryItem = ({ item }: { item: Category }) => {
   return (
     <div
     className={cn(
-      'flex justify-between items-stretch w-full h-[230px] sm:h-[320px] md:h-[240px] lg:h-[160px] xl:h-[190px] 2xl:h-[210px] py-0 cursor-pointer overflow-hidden hover:-translate-y-0.5',
+      'flex justify-between items-stretch w-full h-[230px] sm:h-[320px] md:h-[240px] lg:h-[160px] xl:h-[190px] 2xl:h-[210px] py-0 cursor-pointer overflow-hidden duration-300 hover:scale-105',
       selectedQueries === slug
         ? 'border-gray-800'
         : 'border-border-100 xl:border-transparent',
