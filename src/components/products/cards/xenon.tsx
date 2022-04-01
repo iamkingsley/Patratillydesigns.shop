@@ -4,9 +4,10 @@ import usePrice from '@lib/use-price';
 import { AddToCart } from '@components/products/add-to-cart/add-to-cart';
 import { useTranslation } from 'next-i18next';
 import { PlusIcon } from '@components/icons/plus-icon';
-import { useModalAction } from '@components/ui/modal/modal.context';
+// import { useModalAction } from '@components/ui/modal/modal.context';
 import { productPlaceholder } from '@lib/placeholders';
 import React from 'react';
+import { useRouter } from 'next/router';
 
 type XenonProps = {
   product: any;
@@ -18,6 +19,7 @@ const Xenon: React.FC<XenonProps> = ({ product, className }) => {
 
   const [photo, setPhoto] = React.useState(image)
 
+  const router = useRouter()
   const { t } = useTranslation('common');
   const { price, basePrice, discount } = usePrice({
     amount: product?.sale_price ? product?.sale_price : product?.price!,
@@ -29,10 +31,11 @@ const Xenon: React.FC<XenonProps> = ({ product, className }) => {
   const { price: maxPrice } = usePrice({
     amount: max_price,
   });
-  const { openModal } = useModalAction();
+  // const { openModal } = useModalAction();
 
   function handleProductQuickView() {
-    return openModal('PRODUCT_DETAILS', product.slug);
+    router.push({pathname: `/products/${product.slug}`})
+    // return openModal('PRODUCT_DETAILS', product.slug);
   }
 
   return (
