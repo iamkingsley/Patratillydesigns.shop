@@ -106,7 +106,7 @@ const Details: React.FC<Props> = ({
   return (
     <article className="rounded-lg bg-light">
       <div className="flex flex-col md:flex-row border-b border-border-200 border-opacity-70">
-        <div className="md:w-1/2 p-6 lg:p-14 xl:p-16">
+        <div className="md:w-1/2 p-6 pt-10 lg:p-14 xl:p-16">
           <div className="flex items-center justify-between mb-8 lg:mb-10">
             {backBtn && <BackButton />}
             {discount && (
@@ -124,13 +124,13 @@ const Details: React.FC<Props> = ({
                 style={{
                   backgroundImage: `url(${image?.original ?? productPlaceholder})`,
                   backgroundRepeat: 'no-repeat',
-                  width: (size.width <= 500) ? '100%' : (size.width > 501 && size.width <= 767) ? '80vw' : '90%',
-                  height: (size.width <= 500) ? '80vh' : (size.width > 501 && size.width <= 767) ? '90vh' : '90vh',
+                  width: (size.width <= 500) ? '100%' : (size.width > 500 && size.width <= 767) ? '80vw' : '100%',
+                  height: (size.width <= 500) ? '110vw' : (size.width > 500 && size.width <= 767) ? '100vw' : '100%',
                   backgroundSize: 'contain',
                   backgroundPosition: 'top',
                   backgroundClip: 'border-box',
                 }}
-                >
+              >
                 {/* <Image
                   src={image?.original ?? productPlaceholder}
                   alt={name}
