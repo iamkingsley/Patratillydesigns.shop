@@ -9,7 +9,7 @@ import { authorizationAtom } from '@store/authorization-atom';
 import { AUTH_TOKEN } from '@lib/constants';
 
 type FormValues = {
-  email: string;
+  username: string;
   password: string;
 };
 
@@ -20,10 +20,10 @@ const Login = () => {
   const { closeModal } = useModalAction();
   const { mutate: login, isLoading: loading } = useLoginMutation();
 
-  function onSubmit({ email, password }: FormValues) {
+  function onSubmit({ username, password }: FormValues) {
     login(
       {
-        email,
+        username,
         password,
       },
       {

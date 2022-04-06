@@ -2,8 +2,7 @@ import { BaseService } from '@framework/utils/base-service';
 import { API_ENDPOINTS } from '@framework/utils/endpoints';
 
 export type LoginInputType = {
-  email?: string;
-  phone: string;
+  username: string;
   password: string;
 };
 export type RegisterUserInputType = {

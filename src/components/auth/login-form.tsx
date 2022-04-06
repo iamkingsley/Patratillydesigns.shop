@@ -17,15 +17,15 @@ interface LoginFormProps {
   loading: boolean;
 }
 type FormValues = {
-  email: string;
+  username: string;
   password: string;
 };
 
 const loginFormSchema = yup.object().shape({
-  email: yup
+  username: yup
     .string()
-    .email('error-email-format')
-    .required('error-email-required'),
+    // .email('error-email-format')
+    .required('error-username-required'),
   password: yup.string().required('error-password-required'),
 });
 const LoginForm: React.FC<LoginFormProps> = ({
@@ -57,12 +57,12 @@ const LoginForm: React.FC<LoginFormProps> = ({
         {({ register, formState: { errors } }) => (
           <>
             <Input
-              label={t('text-email')}
-              {...register('email')}
-              type="email"
+              label={t('text-username')}
+              {...register('username')}
+              type="text"
               variant="outline"
               className="mb-5"
-              error={t(errors.email?.message!)}
+              error={t(errors.username?.message!)}
             />
             <PasswordInput
               label={t('text-password')}
