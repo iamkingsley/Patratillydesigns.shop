@@ -108,6 +108,7 @@
   "text-no-account": "没有任何帐户？",
   "text-already-account": "已有账号？",
   "text-register": "注册",
+  "text-user-exists": "remember to change this",
   "text-old-password": "旧密码",
   "text-new-password": "新密码",
   "text-confirm-password": "确认密码",

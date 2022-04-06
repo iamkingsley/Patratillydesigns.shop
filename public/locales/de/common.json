@@ -108,6 +108,7 @@
   "text-no-account": "Sie haben noch keinen Account?",
   "text-already-account": "Haben Sie bereits ein Konto?",
   "text-register": "Registrieren",
+  "text-user-exists": "remember to change this",
   "text-old-password": "Altes Passwort",
   "text-new-password": "Neues Passwort",
   "text-confirm-password": "Passwort bestätigen",

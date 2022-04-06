@@ -13,16 +13,17 @@ import { AUTH_TOKEN } from '@lib/constants';
 
 type FormValues = {
   name: string;
+  phone: string;
   email: string;
   password: string;
 };
 
 const registerFormSchema = yup.object().shape({
   name: yup.string().required('error-name-required'),
+  phone: yup.string().required('error-contact-required'),
   email: yup
     .string()
-    .email('error-email-format')
-    .required('error-email-required'),
+    .email('error-email-format'),
   password: yup.string().required('error-password-required'),
 });
 
@@ -37,10 +38,11 @@ const Register = () => {
   });
   const { mutate, isLoading: loading } = useRegisterMutation();
 
-  function onSubmit({ name, email, password }: FormValues) {
+  function onSubmit({ name, email, phone, password }: FormValues) {
     mutate(
       {
         name,
+        phone,
         email,
         password,
       },
@@ -52,9 +54,12 @@ const Register = () => {
             closeModal();
             return;
           }
-          if (!data.token) {
-            setErrorMessage(t('error-credential-wrong'));
+          if (!data?.token && !data?.succees) {
+            setErrorMessage(t(data.message));
           }
+          // if (!data.token) {
+          //   setErrorMessage(t('error-credential-wrong'));
+          // }
         },
         onError: (error) => {
           const {
