@@ -3,14 +3,14 @@ export const siteSettings = {
   name: 'Patra Tilly Designs',
   description: '',
   logo: {
-    url: '/patra-tilly-variant.png',
+    url: '/FINAL LOGO ACCEPTED.png',
     alt: 'Patra Tilly Designs',
     href: '/',
     width: 128,
     height: 40,
   },
   defaultLanguage: 'en',
-  currencyCode: 'USD',
+  currencyCode: 'GHS',
   product: {
     placeholderImage: '/product-placeholder.svg',
     cardMaps: {

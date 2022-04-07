@@ -51,13 +51,14 @@ const HeaderMinimal = () => {
         )}
       >
         <div className="flex items-center w-full lg:w-auto">
-          <div className='flex justify-center items-center mx-auto lg:mx-0'>
+          <div className='mx-auto lg:mx-0'>
+          {/* <div className='flex justify-center items-center mx-auto lg:mx-0'> */}
             <Logo />
-            <span className="font-bold text-xl 2xl:text-2xl font-brush transition duration-200 no-underline">
+            {/* <span className="font-bold text-xl 2xl:text-2xl font-brush transition duration-200 no-underline">
               <Link href={ROUTES.HOME} >
                 PatraTilly Designs
               </Link>
-            </span>
+            </span> */}
           </div>
 
           <ul className="ms-10 me-auto hidden pl-8 lg:flex justify-end items-center flex-shrink-0 space-s-8">

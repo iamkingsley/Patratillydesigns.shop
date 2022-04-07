@@ -13,10 +13,10 @@ const Logo: React.FC<React.AnchorHTMLAttributes<{}>> = ({
     <Link href="/" className={cn('inline-flex', className)} {...props}>
       <span className="overflow-hidden relative w-40 h-16 lg:w-50 lg:h-20">
         <Image
-          src={logo?.original ?? logoPlaceholder}
-          alt={siteTitle || 'PatraTillyDesigns Logo'}
+          src={logo ? logo : logoPlaceholder}
+          alt={siteTitle || 'Patra Tilly Designs Logo'}
           layout="fill"
-          objectFit="contain"
+          objectFit="cover"
           loading="eager"
         />
       </span>

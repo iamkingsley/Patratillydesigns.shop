@@ -6,7 +6,7 @@ const siteSettings = {
     + 'Shop the latest Patra Tilly Designs clothing collection, '
     + 'which includes both Bespoke Wear and Ready to Wear options.',
   currencyCode: 'GHS',
-  logo: '@assets/patra-tilly-variant.png',
+  logo: '/FINAL LOGO ACCEPTED.png',
 };
 
 type State = typeof initialState;
