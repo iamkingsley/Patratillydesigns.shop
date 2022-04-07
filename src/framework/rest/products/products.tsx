@@ -43,7 +43,8 @@ const Products: React.FC<ProductsProps> = ({ shopId, layout }) => {
   return (
     <GridWithLoader
       notFound={!loading && !data?.pages?.[0]?.data?.length}
-      showLoaders={loading && !data?.pages?.length}
+      // showLoaders={loading && !data?.pages?.[0]?.data.length}
+      showLoaders={loading}
       hasNextPage={Boolean(hasNextPage)}
       isLoadingMore={loadingMore}
       onLoadMore={handleLoadMore}

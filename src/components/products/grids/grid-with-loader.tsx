@@ -50,7 +50,9 @@ const GridWithLoader: React.FC<GridWithLoaderProps> = ({
         '!bg-transparent !p-0': layout === 'minimal',
       })}
     >
-      <p className='text-heading font-semibold text-md md:text-xl lg:text-2xl xl:text-3xl mb-5 md:mb-8 text-center'>
+      <p className={cn('text-heading font-semibold text-md md:text-xl lg:text-2xl xl:text-3xl mb-5 md:mb-8 text-center', {
+        'hidden' : showLoaders
+      })}>
         Our Garment Pieces
       </p>
       <div

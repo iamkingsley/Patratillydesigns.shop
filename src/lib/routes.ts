@@ -16,5 +16,6 @@ export const ROUTES = {
   CONTACT: '/contact',
   ABOUT: '/about',
   SHOPS: '/shops',
+  SHOP: '/shop',
   MEASUREMENT: '/measurement',
 };

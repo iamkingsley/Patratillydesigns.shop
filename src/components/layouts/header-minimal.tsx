@@ -13,7 +13,6 @@ import { useIsHomePage } from '@lib/use-is-homepage';
 import { useEffect } from 'react';
 import SearchWithSuggestion from '@components/ui/search/search-with-suggestion';
 import { SearchIcon } from '@components/icons/search-icon';
-import { ROUTES } from '@lib/routes';
 
 const Search = dynamic(() => import('@components/ui/search/search'));
 const CartCounterIconButton = dynamic(

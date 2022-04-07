@@ -3,7 +3,7 @@ import { ROUTES } from '@lib/routes';
 import { useTranslation } from 'next-i18next';
 
 const headerLinks = [
-  { href: ROUTES.HOME, label: 'text-shop' },
+  { href: ROUTES.SHOP, label: 'text-shop' },
   // { href: ROUTES.SHOPS, icon: null, label: 'nav-menu-shops' },
   // { href: ROUTES.OFFERS, label: 'nav-menu-offer' },
   // { href: ROUTES.PRIVACY, label: 'policy-main-title' },

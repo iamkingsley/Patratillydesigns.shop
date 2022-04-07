@@ -6,7 +6,6 @@ import { getLayout } from '@components/layouts/layout';
 import { useSettings } from '@components/settings/settings.context';
 import { formatAddress } from '@lib/format-address';
 import { getIcon } from '@lib/get-icon';
-import isEmpty from 'lodash/isEmpty';
 import * as socialIcons from '@components/icons/social';
 export { getStaticProps } from '@framework/ssr/common';
 import Location from '@components/contact/map';

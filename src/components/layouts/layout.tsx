@@ -9,7 +9,7 @@ const SiteLayout: React.FC = ({ children }) => {
   return (
     <div className="flex flex-col min-h-screen transition-colors duration-150 bg-light">
       {layout === 'minimal' ? <HeaderMinimal /> : <Header />}
-      <div className="mt-16 md:mt-0">
+      <div className="mt-16 lg:mt-0">
         {children}
       </div>
       <MobileNavigation />
