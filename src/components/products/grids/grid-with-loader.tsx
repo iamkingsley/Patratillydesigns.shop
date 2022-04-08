@@ -4,6 +4,7 @@ import Button from '@components/ui/button';
 import NotFound from '@components/ui/not-found';
 import { useTranslation } from 'next-i18next';
 import rangeMap from '@lib/range-map';
+import { useRouter } from 'next/router';
 const styles = {
   // standard: 'md:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-7',
   standard: 'md:grid-cols-3 lg:grid-cols-4 gap-1',
@@ -35,6 +36,7 @@ const GridWithLoader: React.FC<GridWithLoaderProps> = ({
   layout,
 }) => {
   const { t } = useTranslation('common');
+  const { pathname } = useRouter();
 
   if (notFound) {
     return (
@@ -51,7 +53,7 @@ const GridWithLoader: React.FC<GridWithLoaderProps> = ({
       })}
     >
       <p className={cn('text-heading font-semibold text-md md:text-xl lg:text-2xl xl:text-3xl mb-5 md:mb-8 text-center', {
-        'hidden' : showLoaders
+        'hidden' : showLoaders || pathname === '/shop'
       })}>
         Our Garment Pieces
       </p>
