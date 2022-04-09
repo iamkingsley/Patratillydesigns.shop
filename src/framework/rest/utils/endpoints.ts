@@ -1,4 +1,5 @@
 export const API_ENDPOINTS: Record<string, string> = {
+  ATTRIBUTES: 'attributes',
   PRODUCTS: 'products',
   FEATURED_PRODUCTS: 'products/featured-products',
   FEATURED_CATEGORIES: 'categories/featured-categories',

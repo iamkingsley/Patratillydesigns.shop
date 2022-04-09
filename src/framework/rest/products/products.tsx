@@ -29,6 +29,8 @@ const Products: React.FC<ProductsProps> = ({ shopId, layout }) => {
       ...(Boolean(shopId) ? { shop_id: Number(shopId) } : { type: group }),
       name: query?.text as string,
       categories: query?.category as string,
+      color: query?.color as string,
+      size: query?.size as string,
     },
     {
       enabled: Boolean(group),

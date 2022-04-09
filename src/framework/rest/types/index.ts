@@ -26,6 +26,14 @@ export type CategoriesQueryOptionsType = {
   limit?: number;
   parent?: string | null;
 };
+export  type Attribute = {
+  id: string;
+  name: string;
+  slug: string;
+  values: Array<AttributeValue>;
+  shop_id?: string;
+};
+
 export type ProductsQueryOptionsType = {
   type?: string;
   name?: string;
@@ -33,6 +41,8 @@ export type ProductsQueryOptionsType = {
   status?: string;
   limit?: number;
   shop_id?: number;
+  color?: string;
+  size?: string;
 };
 
 export type ShopsQueryOptionsType = {
@@ -120,6 +130,8 @@ export declare type Attachment = {
 };
 export declare type AttributeValue = {
   id: string;
+  value: string;
+  meta: string;
 };
 export declare type Variation = {
   id: string;

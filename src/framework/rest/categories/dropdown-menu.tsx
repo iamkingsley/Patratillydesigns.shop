@@ -13,10 +13,9 @@ const CategoriesDropdownMenu = ({ variant }: Props) => {
 
   return (
     <div className="flex flex-row items-center justify-center space-x-2 border border-gray-100 px-2">
-      <span>Category</span>
       <CategoriesMenu
         categories={data?.categories?.data}
-        defaultCategory={data?.categories?.data?.find((cat) => cat.slug === 'bespoke')}
+        defaultCategory={{ name: 'Category'} as Category}
         variant={variant}
       />
     </div>
