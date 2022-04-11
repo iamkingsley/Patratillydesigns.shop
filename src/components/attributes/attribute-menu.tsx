@@ -23,7 +23,7 @@ export const AttributesMenu: React.FC<AttributesMenuProps> = ({
   const router = useRouter();
   const { query, pathname } = router;
   const selectedMenu: AttributeValue =
-    attribute.values?.find((value) => value.value === query[attribute.slug]) ??
+    attribute.values?.find((value) => value.value === query[attribute.slug]) ||
     { value: attribute.name };
 
   const onAttributeClick = (value: string) => {

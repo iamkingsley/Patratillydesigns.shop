@@ -30,6 +30,8 @@ export class BaseService {
     return this.http.get(this.basePath);
   }
   find(params: RequestParams) {
+    // remove type for now
+    delete params.type;
     const {
       limit = 30,
       page = 1,

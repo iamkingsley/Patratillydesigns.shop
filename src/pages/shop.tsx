@@ -5,6 +5,7 @@ import { useWindowSize } from '@lib/use-window-size';
 import dynamic from 'next/dynamic';
 import CategoriesDropdownMenu from '@framework/categories/dropdown-menu';
 import AttributeSelectors from '@framework/attributes/attribute-selectors';
+import SelectedAttributes from '@components/attributes/selected-attributes';
 export { getStaticProps } from '@framework/ssr/pages';
 const CartCounterButton = dynamic(
   () => import('@components/cart/cart-counter-button'),
@@ -17,6 +18,7 @@ export default function Shop() {
   return (
     <div className="bg-light w-full px-4 xl:px-14 mx-auto">
       <main>
+        <SelectedAttributes />
         <div className="flex flex-row flex-wrap space-x-2 justify-end my-6">
           <AttributeSelectors variant='colored' />
           <CategoriesDropdownMenu variant="colored" />

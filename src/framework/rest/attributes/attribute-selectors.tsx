@@ -11,7 +11,10 @@ const AttributeSelectors = ({ variant }: Props) => {
   return (
     <>
       {data?.attributes?.map((attribute: Attribute, i: number) => (
-        <div key={i} className="flex flex-row items-center justify-center space-x-2 border border-gray-100 px-2">
+        <div
+          key={i}
+          className="flex flex-row items-center justify-center space-x-2 border border-gray-100 px-2"
+        >
           <AttributesMenu
             key={i}
             defaultAttribute={data?.attributes?.[0]}
@@ -19,8 +22,7 @@ const AttributeSelectors = ({ variant }: Props) => {
             variant={variant}
           />
         </div>
-      ))
-      }      
+      ))}
     </>
   );
 };
