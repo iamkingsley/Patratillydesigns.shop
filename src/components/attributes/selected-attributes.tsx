@@ -16,10 +16,10 @@ const SelectedAttributes = () => {
         'my-6': Object.keys(query).length
       })}>
         {Object.keys(query).map((key, i) => (
-          <div className='flex flex-row items-center space-x-1 rounded bg-gray-50 p-2' key={i}>
+          <div className='flex flex-row items-center space-x-1 rounded bg-gray-100 p-2 text-sm font-semibold capitalize hover:bg-accent hover:text-light' key={i}>
             <span>{query[key]}</span>
             <CloseIcon 
-              className='w-6 h-6 hover:cursor-pointer p-1 hover:bg-gray-200 hover:rounded-full' 
+              className='w-6 h-6 hover:cursor-pointer p-1 hover:bg-gray-500 hover:rounded-full' 
               onClick={() => clearFilter(key)}
             />
           </div>

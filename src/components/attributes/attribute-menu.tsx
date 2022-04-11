@@ -53,8 +53,8 @@ export const AttributesMenu: React.FC<AttributesMenuProps> = ({
       >
         {({ open }) => (
           <>
-            <span className="whitespace-nowrap">{selectedMenu?.value}</span>
-            <span className="flex ps-2.5 pt-1 ms-auto">
+            <span className="text-sm capitalize">{selectedMenu?.value}</span>
+            <span className="flex ps-2 pt-1 ms-auto">
               {variant === 'colored' && (
                 <CaretDown
                   className={open ? 'transform rotate-180' : undefined}
@@ -110,7 +110,7 @@ export const AttributesMenu: React.FC<AttributesMenuProps> = ({
                     <li
                       onClick={() => onAttributeClick(value)}
                       className={cn(
-                        'flex space-s-4 items-center w-full px-5 py-2.5 text-sm font-semibold capitalize  transition duration-200 hover:text-accent focus:outline-none',
+                        'flex space-s-4 items-center w-full px-5 py-2 text-sm font-semibold capitalize transition duration-200 hover:text-accent hover:cursor-pointer focus:outline-none',
                         active ? 'text-accent' : 'text-body-dark'
                       )}
                     >

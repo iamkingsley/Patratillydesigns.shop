@@ -61,8 +61,8 @@ export const CategoriesMenu: React.FC<CategoriesMenuProps> = ({
                 })}
               </span>
             )}
-            <span className="whitespace-nowrap">{selectedMenu?.name}</span>
-            <span className="flex ps-2.5 pt-1 ms-auto">
+            <span className="text-sm capitalize whitespace-nowrap">{selectedMenu?.name}</span>
+            <span className="flex ps-2 pt-1 ms-auto">
               {variant === 'colored' && (
                 <CaretDown
                   className={open ? 'transform rotate-180' : undefined}
@@ -93,7 +93,7 @@ export const CategoriesMenu: React.FC<CategoriesMenuProps> = ({
         <Menu.Items
           as="ul"
           className={cn(
-            'absolute  mt-2  py-2 w-48 h-56 lg:h-auto min-h-40 max-h-56 sm:max-h-72 bg-light rounded shadow-700 focus:outline-none',
+            'absolute mt-2 py-2 w-48 h-56 lg:h-auto min-h-40 max-h-56 sm:max-h-72 bg-light rounded shadow-700 focus:outline-none',
             {
               'border border-border-200 end-0 origin-top-end':
                 variant === 'minimal',
