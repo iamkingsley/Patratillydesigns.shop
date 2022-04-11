@@ -24,8 +24,9 @@ export const CategoriesMenu: React.FC<CategoriesMenuProps> = ({
 }) => {
   const router = useRouter();
   const { query, pathname } = router;
-  const selectedMenu =
-    categories?.find((category) => router.asPath.includes(category.slug)) ?? defaultCategory;
+  const selectedMenu = categories?.find((category) => router.asPath.includes(
+      category.name.split(' ').join('+')
+  )) ?? defaultCategory;
 
   const onCategoryClick = (name: string) => {
     router.push({
