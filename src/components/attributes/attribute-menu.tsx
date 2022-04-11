@@ -37,7 +37,7 @@ export const AttributesMenu: React.FC<AttributesMenuProps> = ({
     );
   };
   return (
-    <Menu as="div" className="relative inline-block text-right z-50">
+    <Menu as="div" className="relative inline-block text-right z-10">
       <Menu.Button
         role="trigger"
         className={cn(

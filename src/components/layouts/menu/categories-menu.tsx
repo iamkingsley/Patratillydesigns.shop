@@ -37,7 +37,7 @@ export const CategoriesMenu: React.FC<CategoriesMenuProps> = ({
     { scroll: false })
   }
   return (
-    <Menu as="div" className="relative inline-block text-right z-50">
+    <Menu as="div" className="relative inline-block text-right z-10">
       <Menu.Button
         className={cn(
           'flex items-center flex-shrink-0 text-sm md:text-base font-semibold h-11 focus:outline-none text-heading xl:px-4',
