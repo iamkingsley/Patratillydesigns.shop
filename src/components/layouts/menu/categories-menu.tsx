@@ -7,7 +7,6 @@ import { CaretDown } from '@components/icons/caret-down';
 import * as categoryIcons from '@components/icons/category';
 import { Category } from '@framework/types';
 import { useRouter } from 'next/router';
-import Link from '@components/ui/link';
 import { ArrowDownIcon } from '@components/icons/arrow-down';
 
 interface CategoriesMenuProps {
@@ -28,10 +27,10 @@ export const CategoriesMenu: React.FC<CategoriesMenuProps> = ({
   const selectedMenu =
     categories?.find((category) => router.asPath.includes(category.slug)) ?? defaultCategory;
 
-  const onCategoryClick = (slug: string) => {
+  const onCategoryClick = (name: string) => {
     router.push({
       pathname,
-      query: { ...query, category: slug}
+      query: { ...query, category: name}
     },
     undefined,
     { scroll: false })
@@ -114,8 +113,7 @@ export const CategoriesMenu: React.FC<CategoriesMenuProps> = ({
               <Menu.Item key={id}>
                 {({ active }) => (
                   <li
-                    // href={`/${slug}`}
-                    onClick={() => onCategoryClick(slug)}
+                    onClick={() => onCategoryClick(name)}
                     className={cn(
                       'flex space-s-4 items-center w-full px-5 py-2.5 text-sm font-semibold capitalize  transition duration-200 hover:text-accent focus:outline-none',
                       active ? 'text-accent' : 'text-body-dark'
