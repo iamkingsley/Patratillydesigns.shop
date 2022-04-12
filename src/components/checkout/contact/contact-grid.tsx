@@ -9,9 +9,10 @@ import Input from '@components/ui/forms/input';
 import { useUpdateCustomerMutation } from '@framework/customer/customer.query';
 import useUser from '@framework/auth/use-user';
 import { toast } from 'react-toastify';
+import isEmpty from 'lodash/isEmpty';
 
 interface ContactProps {
-  contact: string | undefined;
+  contact: string;
   label: string;
   count?: number;
   className?: string;
@@ -25,10 +26,8 @@ const ContactGrid = ({ contact, label, count, className }: ContactProps) => {
   const { mutate: updateProfile } = useUpdateCustomerMutation();
 
   useEffect(() => {
-    if (contact) {
-      setContactNumber(contact);
-    }
-  }, [contact, setContactNumber]);
+    setContactNumber(contact);
+  }, []);
 
   function onAddOrChange() {
     openModal('ADD_OR_UPDATE_CHECKOUT_CONTACT');
@@ -75,7 +74,7 @@ const ContactGrid = ({ contact, label, count, className }: ContactProps) => {
           onClick={onContactUpdate}
         >
           <PlusIcon className="w-4 h-4 stroke-2 me-0.5" />
-          {contactNumber ? t('text-update') : t('text-add')}
+          {isEmpty(contactNumber) ? t('text-add') : t('text-update')}
         </button>
       </div>
 

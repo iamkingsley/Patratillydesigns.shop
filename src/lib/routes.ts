@@ -18,4 +18,5 @@ export const ROUTES = {
   SHOPS: '/shops',
   SHOP: '/shop',
   MEASUREMENT: '/measurement',
+  GALLERY: '/gallery',
 };
