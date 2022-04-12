@@ -56,7 +56,7 @@ export type OrdersQueryOptionsType = {
   tracking_number?: string;
   orderBy?: string;
   sortedBy?: string;
-  customer_id?: number;
+  customer_id?: string;
   shop_id?: number;
   first?: number;
   page?: number;

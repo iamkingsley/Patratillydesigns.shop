@@ -6,8 +6,10 @@ import React, { Fragment, useEffect, useState } from 'react';
 import OrderCard from '@components/orders/order-card';
 import OrderDetails from '@components/orders/order-details';
 import OrderListMobile from '@components/orders/order-list-mobile';
+import useUser from '@framework/auth/use-user';
 
 export default function Orders() {
+  const { me } = useUser();
   const {
     data,
     isFetching: loading,
@@ -17,6 +19,9 @@ export default function Orders() {
     isFetchingNextPage: loadingMore,
   } = useOrdersQuery({
     fields: ['refund'],
+    customer_id: me.id!,
+    orderBy: "created_at",
+    sortedBy: "desc",
   });
   const [order, setOrder] = useState<any>({});
   useEffect(() => {

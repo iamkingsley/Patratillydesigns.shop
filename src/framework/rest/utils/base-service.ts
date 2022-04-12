@@ -9,6 +9,7 @@ interface QueryParamsOptions {
   sortedBy?: string;
   parent: string;
   fields?: string[];
+  customer_id?: string;
 }
 interface SearchParamsOptions {
   type: string;
@@ -39,6 +40,7 @@ export class BaseService {
       fields,
       orderBy,
       sortedBy,
+      customer_id,
       ...restParams
     } = params;
     const search = this.formatSearchString({
@@ -52,6 +54,7 @@ export class BaseService {
       fields,
       orderBy,
       sortedBy,
+      customer_id,
     });
     return this.http
       .get(`${this.basePath}?${queryString}`)
@@ -91,12 +94,14 @@ export class BaseService {
     fields,
     orderBy,
     sortedBy,
+    customer_id,
   }: QueryParamsOptions) {
     return new URLSearchParams({
       searchJoin: 'and',
       limit: limit.toString(),
       page: page.toString(),
       parent: parent?.toString(),
+      ...(Boolean(customer_id) && { customer_id }),
       ...(Boolean(sortedBy) && { sortedBy }),
       ...(Boolean(orderBy) && { orderBy }),
       ...(Boolean(search) && { search }),
