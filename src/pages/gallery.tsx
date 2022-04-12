@@ -1,5 +1,3 @@
-import { useWindowSize } from '@lib/use-window-size';
-import dynamic from 'next/dynamic';
 import { useTranslation } from 'next-i18next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { getLayout } from '@components/layouts/layout';
