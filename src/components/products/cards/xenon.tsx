@@ -111,12 +111,14 @@ const Xenon: React.FC<XenonProps> = ({ product, className }) => {
             </>
           ) : (
             <>
-              <div className="flex md:items-center flex-col md:flex-row">
+              {/* <div className="flex md:items-center flex-col md:flex-row"> */}
+              <div className="flex flex-col">
                 <span className="text-sm md:text-base text-heading font-semibold">
                   {price}
                 </span>
                 {basePrice && (
-                  <del className="text-xs text-muted mt-1 md:mt-0 md:ms-2">
+                  // <del className="text-xs text-muted mt-1 md:mt-0 md:ms-2">
+                  <del className="text-xs text-muted">
                     {basePrice}
                   </del>
                 )}
