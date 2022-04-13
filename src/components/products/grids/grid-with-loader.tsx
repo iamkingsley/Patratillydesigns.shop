@@ -7,7 +7,7 @@ import rangeMap from '@lib/range-map';
 import { useRouter } from 'next/router';
 const styles = {
   // standard: 'md:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-7',
-  standard: 'md:grid-cols-3 2xl:grid-cols-4 3xl:grid-cols-5 gap-1',
+  standard: 'md:grid-cols-3 xl:grid-cols-4 gap-1 xs:gap-6 md:gap-3',
   shop: 'lg:grid-cols-2 xl:grid-cols-4 3xl:grid-cols-6',
   minimal:
     'grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-6',

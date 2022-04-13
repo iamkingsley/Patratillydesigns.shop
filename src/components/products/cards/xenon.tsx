@@ -48,7 +48,7 @@ const Xenon: React.FC<XenonProps> = ({ product, className }) => {
       )}
     >
       <div
-        className="relative flex items-center justify-center cursor-pointer h-[250px] xs:h-[300px] sm:h-[400px] lg:h-[450px] xl:h-[500px] bg-gray-100"
+        className="relative flex items-center justify-center cursor-pointer h-[250px] xs:h-[300px] sm:h-[220px] uk:h-[420px] md:h-[350px] lg:h-[400px] bg-gray-100"
         onClick={handleProductQuickView}
         style={{
           backgroundImage: `url(${photo?.original ?? productPlaceholder})`,
