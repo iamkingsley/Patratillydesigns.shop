@@ -13,6 +13,7 @@ const headerLinks = [
   { href: ROUTES.HELP, label: 'nav-menu-faq' },
   { href: ROUTES.ABOUT, label: 'nav-menu-about' },
   { href: ROUTES.CONTACT, label: 'nav-menu-contact' },
+  { href: ROUTES.GALLERY, label: 'nav-menu-gallery' },
 ];
 
 export default function MobileMainMenu() {
