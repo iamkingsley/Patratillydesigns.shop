@@ -5,12 +5,23 @@ interface Props {
   products: any;
   currentProductId: any;
   gridClassName?: string;
+  layout?: string;
 }
+
+const styles = {
+  // standard: 'md:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-7',
+  standard: 'md:grid-cols-3 2xl:grid-cols-4 3xl:grid-cols-5 gap-1',
+  shop: 'lg:grid-cols-2 xl:grid-cols-4 3xl:grid-cols-6',
+  minimal:
+    'grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-6',
+  default: 'md:grid-cols-3 lg:grid-cols-4 2xl:grid-cols-5 3xl:grid-cols-6',
+};
 
 const RelatedProducts = ({
   products,
   currentProductId,
   gridClassName,
+  layout,
 }: Props) => {
   const { t } = useTranslation('common');
 
@@ -20,10 +31,12 @@ const RelatedProducts = ({
         {t('text-related-products')}
       </h2>
       <div
-        className={cn(
-          'grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4',
-          gridClassName
-        )}
+        className={cn('grid grid-cols-2 gap-3', {
+          [styles.standard]: layout === 'standard',
+          [styles.shop]: layout === 'shop',
+          [styles.minimal]: layout === 'minimal',
+          [styles.default]: !layout || layout === 'modern',
+        })}
       >
         {products?.map((item: any, idx: number) => {
           if (currentProductId === item.id) {

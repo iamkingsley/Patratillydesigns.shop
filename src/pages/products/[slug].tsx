@@ -26,7 +26,8 @@ export default function Product({ product }: any) {
             <RelatedProducts
               products={product?.related_products}
               currentProductId={product?.id}
-              gridClassName="lg:grid-cols-4 2xl:grid-cols-5 !gap-3"
+              layout="standard"
+              // gridClassName="lg:grid-cols-4 2xl:grid-cols-5 !gap-3"
             />
           </div>
         )}

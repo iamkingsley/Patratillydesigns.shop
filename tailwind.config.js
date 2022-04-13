@@ -17,6 +17,11 @@ module.exports = {
   theme: {
     extend: {
       screens: {
+        'sm': '480px',
+        'md':  '900px', // '768px',
+        'lg':  '1120px', // '976px',
+        'xl': '1440px',
+        '2xl': '2020px',
         '3xl': '2100px',
       },
       zIndex: {
