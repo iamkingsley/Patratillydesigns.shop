@@ -42,9 +42,11 @@ export const CategoriesMenu: React.FC<CategoriesMenuProps> = ({
         className={cn(
           'flex items-center flex-shrink-0 text-sm md:text-base font-semibold h-11 focus:outline-none text-heading xl:px-4',
           {
-            'bg-gray-50 border border-border-200 rounded-lg px-3':
+            // 'bg-gray-50 border border-border-200 rounded-lg px-3':
+            'bg-gray-50 px-3':
               variant === 'minimal',
-            'bg-light xl:border border-border-200 xl:text-accent xl:min-w-150 rounded':
+            // 'bg-light xl:border border-border-200 xl:text-accent xl:min-w-150 rounded':
+            'bg-light xl:text-accent xl:min-w-150':
               variant === 'colored',
           },
           className
