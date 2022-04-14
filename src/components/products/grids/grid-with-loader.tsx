@@ -5,12 +5,11 @@ import NotFound from '@components/ui/not-found';
 import { useTranslation } from 'next-i18next';
 import rangeMap from '@lib/range-map';
 import { useRouter } from 'next/router';
-const styles = {
-  // standard: 'md:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-7',
-  standard: 'md:grid-cols-3 xl:grid-cols-4 gap-1 xs:gap-6 md:gap-3',
+
+export const gridStyles = {
+  standard: 'md:grid-cols-3 xl:grid-cols-4 xs:gap-6 md:gap-3',
   shop: 'lg:grid-cols-2 xl:grid-cols-4 3xl:grid-cols-6',
-  minimal:
-    'grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-6',
+  minimal: 'grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-6',
   default: 'md:grid-cols-3 lg:grid-cols-4 2xl:grid-cols-5 3xl:grid-cols-6',
 };
 const ProductLoader = dynamic(
@@ -59,11 +58,10 @@ const GridWithLoader: React.FC<GridWithLoaderProps> = ({
       </p>
       <div
         className={cn('grid grid-cols-2 gap-3', {
-        // className={cn('grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-3 md:gap-6', {
-          [styles.standard]: layout === 'standard',
-          [styles.shop]: layout === 'shop',
-          [styles.minimal]: layout === 'minimal',
-          [styles.default]: !layout || layout === 'modern',
+          [gridStyles.standard]: layout === 'standard',
+          [gridStyles.shop]: layout === 'shop',
+          [gridStyles.minimal]: layout === 'minimal',
+          [gridStyles.default]: !layout || layout === 'modern',
         })}
       >
         {showLoaders ? (
