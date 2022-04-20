@@ -78,7 +78,7 @@ const Footer = () => {
             </div>
           </div>
         </div>
-        <div className="flex flex-col md:flex-row justify-center items-center space-y-4 md:space-y-0 lg:justify-between p-6 border-b border-gray-300 bg-gray-300">
+        <div className="flex flex-col md:flex-row justify-center items-center space-y-4 md:space-y-0 md:justify-between p-6 border-b border-gray-300 bg-gray-300">
           <div className="text-center">
             <span>© {new Date().getFullYear()} Copyright:</span>
             <Link href="/">
