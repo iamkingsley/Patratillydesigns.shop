@@ -2,7 +2,7 @@ import Image from 'next/image';
 import { useTranslation } from 'next-i18next';
 import { getLayout } from '@components/layouts/layout';
 import { useGalleryMutation } from '@framework/gallery/gallery.query';
-export { getStaticProps } from '@framework/ssr/pages'
+export { getStaticProps } from '@framework/ssr/common'
 export default function Gallery() {
   const { data } = useGalleryMutation();
   const { t } = useTranslation('banner');
