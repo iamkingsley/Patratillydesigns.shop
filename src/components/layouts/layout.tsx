@@ -12,8 +12,8 @@ const SiteLayout: React.FC = ({ children }) => {
       <div className="mt-16 lg:mt-0">
         {children}
       </div>
-      <MobileNavigation />
       <Footer />
+      <MobileNavigation />
     </div>
   );
 };
