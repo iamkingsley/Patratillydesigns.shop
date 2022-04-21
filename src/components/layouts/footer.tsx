@@ -92,7 +92,7 @@ const Footer = () => {
             <a href={socials[0]?.url} className="mr-6 text-gray-600">
               <FacebookIcon className="w-6 h-6" />
             </a>
-            <a href={`https://wa.me/${socials[1].url}?text=Hello`} className="mr-6">
+            <a href={`https://wa.me/${socials[1]?.url}?text=Hello`} className="mr-6">
               <WhatsAppIcon className="w-6 h-6 rounded-full bg-gray-600" />
             </a>
             <a href={socials[2]?.url} className="mr-6 text-gray-600">
