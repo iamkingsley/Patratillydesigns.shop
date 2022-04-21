@@ -23,12 +23,15 @@ const MAP_LAYOUT_TO_GROUP: Record<string, any> = {
   default: Classic,
 };
 export default function Home() {
-  const { query } = useRouter();
+  const { query, pathname } = useRouter();
   const { width } = useWindowSize();
   const { layout, page } = useLayout();
 
   useEffect(() => {
-    if (query.text || query.category) {
+    if (
+      (query.text || query.category) &&
+      !pathname.match(new RegExp(`/shop*`))
+    ) {
       scroller.scrollTo('grid', {
         smooth: true,
         offset: -110,
