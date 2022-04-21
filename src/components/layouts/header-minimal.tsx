@@ -76,7 +76,8 @@ const HeaderMinimal = () => {
               <div className="block lg:hidden w-full absolute top-0 start-0 h-full bg-light pt-1.5 md:pt-2 px-5">
                 <SearchWithSuggestion
                   label={t('text-search-label')}
-                  variant="minimal"
+                  variant="normal"
+                  focus={true}
                 />
               </div>
             )}

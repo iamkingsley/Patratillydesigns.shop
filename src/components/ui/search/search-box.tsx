@@ -1,4 +1,4 @@
-import { InputHTMLAttributes } from 'react';
+import { InputHTMLAttributes, useEffect, useRef } from 'react';
 import cn from 'classnames';
 import { SearchIcon } from '@components/icons/search-icon';
 import { CloseIcon } from '@components/icons/close-icon';
@@ -8,6 +8,7 @@ export interface Props extends InputHTMLAttributes<HTMLInputElement> {
   className?: string;
   label: string;
   variant?: 'minimal' | 'normal' | 'with-shadow';
+  focus?: boolean;
   onSubmit: (e: any) => void;
   onClearSearch: (e: any) => void;
 }
@@ -27,9 +28,17 @@ const SearchBox: React.FC<Props> = ({
   onClearSearch,
   variant = 'normal',
   value,
+  focus,
   ...rest
 }) => {
   const { t } = useTranslation();
+  const inputRef = useRef();
+
+  useEffect(() => {
+    if (focus) {
+      inputRef.current.focus();
+    }
+  }, []);
 
   return (
     <form onSubmit={onSubmit} className={cn('w-full', className)}>
@@ -54,6 +63,7 @@ const SearchBox: React.FC<Props> = ({
             classes[variant]
           )}
           {...rest}
+          ref={inputRef}
         />
         {value && (
           <button
