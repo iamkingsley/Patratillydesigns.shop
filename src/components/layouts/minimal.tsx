@@ -24,7 +24,7 @@ const Minimal = () => {
             </div>
           </>
         ) : ( // home only
-          <div className="w-full px-4 sm:px-10 md:px-1 lg:px-10 xl:px-16 mx-auto">
+          <div className="w-full px-4 sm:px-0 md:px-6 lg:px-10 xl:px-16 mx-auto">
             <Categories layout="minimal" />
           </div>
         )}
