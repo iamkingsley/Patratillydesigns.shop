@@ -271,7 +271,7 @@ const Details: React.FC<Props> = ({
               </button>
             </div>
           )} */}
-          <WhatsAppUs name={name} slug={slug} />
+          <WhatsAppUs name={name} slug={slug} className="mt-3" />
         </div>
       </div>
 
