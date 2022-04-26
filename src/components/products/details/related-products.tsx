@@ -35,7 +35,7 @@ const RelatedProducts = ({
             return null;
           }
           return (
-            <ProductCard product={item} key={idx} cardType={item?.type?.slug} />
+            <ProductCard product={item} key={idx} />
           );
         })}
       </div>

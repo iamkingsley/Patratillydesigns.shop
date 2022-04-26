@@ -6,9 +6,15 @@ import { getLayout } from '@components/layouts/layout';
 import { useSettings } from '@components/settings/settings.context';
 import { formatAddress } from '@lib/format-address';
 import { getIcon } from '@lib/get-icon';
-import * as socialIcons from '@components/icons/social';
 export { getStaticProps } from '@framework/ssr/common';
 import Location from '@components/contact/map';
+import {
+  FacebookIcon,
+  InstagramIcon,
+  TwitterIcon,
+  WhatsAppIcon,
+  YouTubeIcon
+} from '@components/icons/social';
 
 export const ContactPage = () => {
   const { t } = useTranslation('common');
@@ -86,9 +92,15 @@ export const ContactPage = () => {
                     className={`text-muted focus:outline-none me-8 last:me-0 transition-colors duration-300 hover:${item.hoverClass}`}
                   >
                     {getIcon({
-                      iconList: socialIcons,
+                      iconList: {
+                        facebook: FacebookIcon,
+                        instagram: InstagramIcon,
+                        twitter: TwitterIcon,
+                        youtube: YouTubeIcon,
+                        whatsapp: WhatsAppIcon
+                      },
                       iconName: item?.icon,
-                      className: 'w-4 h-4',
+                      className: item?.icon === 'whatsapp' ? 'w-6 h-6 bg-gray-400 rounded-full' : 'w-4 h-4'
                     })}
                   </a>
                 )
