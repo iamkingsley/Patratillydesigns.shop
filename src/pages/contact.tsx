@@ -86,7 +86,7 @@ export const ContactPage = () => {
                 (item: any, index: number) => (
                   <a
                     key={index}
-                    href={item?.url}
+                    href={item.icon === 'whatsapp' ? `https://wa.me/${item.url}` : item?.url}
                     target="_blank"
                     rel="noreferrer"
                     className={`text-muted focus:outline-none me-8 last:me-0 transition-colors duration-300 hover:${item.hoverClass}`}

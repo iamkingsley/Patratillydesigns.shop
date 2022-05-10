@@ -6,6 +6,7 @@ import { InstagramIcon } from "@components/icons/instagram";
 import { PhoneIcon } from "@components/icons/phone";
 import { WhatsAppIcon } from "@components/icons/social";
 import { useSettings } from "@components/settings/settings.context";
+import { getSocialUrl } from "@lib/get-social-url";
 import { ROUTES } from "@lib/routes";
 import { useTranslation } from "next-i18next";
 import Link from "next/link";
@@ -24,6 +25,7 @@ const Footer = () => {
     { href: ROUTES.ABOUT, label: 'nav-menu-about' },
     { href: ROUTES.CONTACT, label: 'nav-menu-contact' },
   ];
+  
   return (
     <>
       <footer className="text-center lg:text-left text-gray-600">
@@ -89,16 +91,16 @@ const Footer = () => {
             </Link>
           </div>
           <div className="flex justify-center items-center">
-            <a href={socials[0]?.url} className="mr-6 text-gray-600">
+            <a href={getSocialUrl(socials, 'facebook')} className="mr-6 text-gray-600">
               <FacebookIcon className="w-6 h-6" />
             </a>
-            <a href={`https://wa.me/${socials[1]?.url}?text=Hello`} className="mr-6">
+            <a href={`https://wa.me/${getSocialUrl(socials, 'whatsapp')}?text=Hello`} className="mr-6">
               <WhatsAppIcon className="w-6 h-6 rounded-full bg-gray-600" />
             </a>
-            <a href={socials[2]?.url} className="mr-6 text-gray-600">
+            <a href={getSocialUrl(socials, 'google')} className="mr-6 text-gray-600">
               <GoogleIcon className="w-6 h-6" />
             </a>
-            <a href={socials[3]?.url} className="mr-6 text-gray-600">
+            <a href={getSocialUrl(socials, 'instagram')} className="mr-6 text-gray-600">
               <InstagramIcon className="w-6 h-6 cursor-pointer" />
             </a>
           </div>
