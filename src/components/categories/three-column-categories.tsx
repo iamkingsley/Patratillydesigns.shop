@@ -13,7 +13,11 @@ interface CategoryGridProps {
     className?: string;
 }
 
-const CategoryItem = ({ item }: { item: Category }) => {
+interface NewCategory extends Category {
+  bg: string;
+}
+
+const CategoryItem = ({ item }: { item: NewCategory }) => {
   const { name, details, slug, image, bg } = item;
   
   const router = useRouter();
@@ -50,7 +54,7 @@ const CategoryItem = ({ item }: { item: Category }) => {
   return (
     <div
     className={cn(
-      'flex justify-between items-stretch w-full h-[200px] md:h-[240px] lg:h-[160px] xl:h-[190px] 2xl:h-[210px] py-0 cursor-pointer overflow-hidden duration-300 hover:scale-105',
+      'w-full h-[200px] md:h-[240px] lg:h-[160px] xl:h-[190px] 2xl:h-[210px] py-0 cursor-pointer overflow-hidden duration-300 hover:scale-105',
       selectedQueries === slug
         ? 'border-gray-800'
         : 'border-border-100 xl:border-transparent',
@@ -59,7 +63,17 @@ const CategoryItem = ({ item }: { item: Category }) => {
     role="button"
     onClick={() => onCategoryClick(slug!)}
   >
-    <div className="flex flex-col justify-center px-5 py-1 z-10">
+    <div className="flex flex-col justify-center px-5 py-1 z-10"
+      style={{
+        backgroundImage: `url(${image?.original})`,
+        backgroundRepeat: 'no-repeat',
+        width: '100%',
+        height: '100%',
+        backgroundSize: 'contain',
+        backgroundPosition: 'right',
+        backgroundClip: 'border-box',
+      }}
+    >
       <p className="text-2xl lg:3xl font-semibold font-heading mb-2" onClick={() => onCategoryClick(slug!)}>
         {name}
       </p>
@@ -67,25 +81,13 @@ const CategoryItem = ({ item }: { item: Category }) => {
         onClick={() => onCategoryClick(slug!)}
       >{details}</p>
     </div>
-    <div className='h-full'
-      style={{
-        backgroundImage: `url(${image?.original})`,
-        backgroundRepeat: 'no-repeat',
-        width: '100%',
-        height: '100%',
-        backgroundSize: 'cover',
-        backgroundPosition: 'left top',
-        backgroundClip: 'border-box',
-      }}
-      >
-    </div>
   </div>
   )
 }
 const CategoryList: React.FC<CategoryGridProps> = ({ categories, loading, notFound }) => {
   const bgColors = ['bg-blue-100', 'bg-yellow-300', 'bg-gray-300'];
   categories?.map((cat, i) => {
-      cat.bg = bgColors[i];
+      (cat as NewCategory).bg = bgColors[i];
       return cat;
   });
   
@@ -103,7 +105,7 @@ const CategoryList: React.FC<CategoryGridProps> = ({ categories, loading, notFou
       {!notFound ? (
         <div className="flex flex-col justify-between items-center w-full mx-auto h-[auto] space-y-3 uk:space-y-0 uk:space-x-3 xl:space-x-5 uk:flex-row my-12 md:my-16 lg:my-20 xl:my-28">
         {categories.map((item, i) => (
-          <CategoryItem item={item} key={i} />
+          <CategoryItem item={item as NewCategory} key={i} />
         ))}
       </div>
       ) : (
